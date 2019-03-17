@@ -1,0 +1,23 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: $font-family-title;
+	font-weight: bold;
+	letter-spacing: 1.3px;
+	-webkit-text-decoration-style: wavy;
+			text-decoration-style: wavy;
+	-webkit-text-decoration-line: underline;
+			text-decoration-line: underline;
+	-webkit-text-decoration-color: $red;
+			text-decoration-color: $red;
+	text-underline-position: under;
+}

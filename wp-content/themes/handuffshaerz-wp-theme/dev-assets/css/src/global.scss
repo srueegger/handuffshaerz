@@ -1,0 +1,153 @@
+body {
+	position: relative;
+}
+
+#slideheader {
+	height: 125px;
+}
+
+.logoimage {
+	width: 250px;
+}
+
+.header {
+	border-top: 10px solid $red;
+	z-index: $zindex-fixed;
+	position: absolute;
+	left: 0;
+	right: 0;
+	&.fixed-top {
+		position: fixed;
+	}
+}
+
+.section {
+	//height: calc(100vh - 10px);
+}
+
+.alwaysmenu {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+#mainmenu-container {
+	background-color: $red;
+	height: 61px;
+	.nav {
+		border-bottom: none;
+		-webkit-transform: translateY(25%);
+		        transform: translateY(25%);
+		.nav-item {
+			.nav-link {
+				color: $white;
+				text-transform: uppercase;
+				border: none;
+				font-weight: bold;
+				letter-spacing: .7px;
+				position: relative;
+				height: 61px;
+				padding: 0 1rem;
+				&:before {
+					background-color: $white;
+					position: absolute;
+					bottom: 25%;
+					content: "";
+					display: inline-block;
+					height: 3px;
+					left: 0;
+					width: 0;
+					@extend %animation;
+				}
+				&:hover,
+				&.active {
+					background-color: transparent;
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	&:before {
+		content: "";
+		border-top: 59px solid $red;
+		border-left: 22px solid transparent;
+		position: absolute;
+		left: -7px;
+		top: 0;
+		bottom: 0;
+		width: 22px;
+	}
+	&:after {
+		content: "";
+		border-top: 59px solid $red;
+		border-right: 22px solid transparent;
+		position: absolute;
+		right: -7px;
+		top: 0;
+		bottom: 0;
+		width: 22px;
+	}
+}
+
+.owl-item {
+	img {
+		width: 100%;
+		height: calc(100vh - 10px);
+		-o-object-fit: cover;
+		   object-fit: cover;
+	}
+	figcaption {
+		text-align: center;
+		position: absolute;
+		bottom: 50%;
+		right: 50%;
+		-webkit-transform: translate(50%, 50%);
+		        transform: translate(50%, 50%);
+	}
+}
+
+.owl-nav {
+	position: absolute;
+	width: 100%;
+	bottom: 50%;
+	-webkit-transform: translateY(50%);
+	        transform: translateY(50%);
+}
+
+.owl-carousel {
+	.owl-prev,
+	.owl-next {
+		position: absolute;
+		bottom: 50%;
+		background: $red !important;
+		border-radius: 0 !important;
+		border: 3px solid $red !important;
+		color: $white !important;
+		@extend %animation;
+		-webkit-transform: translateY(50%);
+				transform: translateY(50%);
+		i {
+			padding: 15px 20px;
+		}
+		&:hover {
+			background: $white !important;
+			border: 3px solid $red !important;
+			color: $red !important;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.owl-next {
+	right: 15px;
+	padding-left: 22px;
+}
+
+.owl-prev {
+	left: 15px;
+	padding-right: 22px;
+}

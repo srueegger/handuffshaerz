@@ -38,11 +38,12 @@ add_action( 'after_setup_theme', 'register_huh_menu' );
  * 		Enqueue scripts and styles.
  ***************************************/
 function huh_startup_scripts() {
+	wp_enqueue_style( "huh-google-font", 'https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Montserrat:400,700' );
 	if (WP_DEBUG) {
-		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', null, '1' );
+		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1' );
 		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery'), '1', true );
 	} else {
-		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', null, '1' );
+		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1' );
 		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery'), '1', true );
 	}
 	$global_vars = array(

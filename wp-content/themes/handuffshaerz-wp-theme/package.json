@@ -17,6 +17,8 @@
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "matchdep": "^2.0.0",
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "owl.carousel": "^2.3.4",
+    "animate-sass": "^0.8.2"
   }
 }

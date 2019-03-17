@@ -1,0 +1,22 @@
+{
+  "name": "huhwptheme",
+  "title": "Hand uffs Härz WP Theme",
+  "description": "Wordpress Theme für die Hand uffs Härz Webseite",
+  "version": "0.1.0",
+  "homepage": "https://rueegger.me",
+  "author": {
+    "name": "Samuel Rüegger",
+    "email": "samuel@rueegger.me"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "matchdep": "^2.0.0",
+    "bootstrap": "^4.3.1"
+  }
+}

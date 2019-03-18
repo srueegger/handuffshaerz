@@ -221,6 +221,9 @@ body {
 			background-color: $red;
 			color: $white;
 		}
+		h3 {
+			min-height: 66px;
+		}
 	}
 	&:hover {
 		.inner {

@@ -184,7 +184,7 @@
 					</div>
 					<div class="row justify-content-center pb-5">
 						<div class="col-12 col-md-4 offer-item mb-3">
-							<div class="inner">
+							<div data-av-animation="flipInY" class="inner animatein spped-1">
 								<i class="fas fa-briefcase-medical fa-4x"></i>
 								<h3 class="my-4">Fundierte Ausbildung</h3>
 								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -192,7 +192,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-md-4 offer-item mb-3">
-							<div class="inner">
+							<div data-av-animation="flipInY" class="inner animatein speed-2">
 								<i class="fas fa-briefcase-medical fa-4x"></i>
 								<h3 class="my-4">Neuste Standards</h3>
 								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -200,7 +200,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-md-4 offer-item mb-3">
-							<div class="inner">
+							<div data-av-animation="flipInY" class="inner animatein speed-3">
 								<i class="fas fa-briefcase-medical fa-4x"></i>
 								<h3 class="my-4">Garantierter Erfolg</h3>
 								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>

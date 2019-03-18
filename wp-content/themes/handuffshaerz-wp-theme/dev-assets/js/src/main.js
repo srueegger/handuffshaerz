@@ -63,11 +63,6 @@
 		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
 	});
 
-	//Angebots Boxen gleich hoch machen
-	$('.offer-item .inner h3').matchHeight({
-		property: 'min-height'
-	});
-
 	//Google Map initialisieren und Markers laden
 	function new_map(el) {
 		var markers = el.find('.marker');

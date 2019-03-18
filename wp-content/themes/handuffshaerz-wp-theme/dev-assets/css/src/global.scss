@@ -246,8 +246,9 @@ body {
 							color: $red;
 							padding-left: 8px;
 							padding-right: 8px;
-							-webkit-transform: translate(7%, 25%);
-									transform: translate(7%, 25%);
+							@extend %animation;
+							-webkit-transform: translate(7%, 10%);
+									transform: translate(7%, 10%);
 						}
 					}
 					.meta-txt {
@@ -256,6 +257,21 @@ body {
 						padding: 7px 12px 6px;
 						border-left: 1px solid $gray-200;
 						border-right: 1px solid $gray-200;
+						cursor: default;
+						@extend %animation;
+					}
+				}
+				&:hover {
+					.inner-meta {
+						.meta-icon-container {
+							i {
+								color: $black;
+							}
+						}
+						.meta-txt {
+							background-color: $black;
+							color: $red;
+						}
 					}
 				}
 			}
@@ -272,4 +288,19 @@ body {
 	h4 {
 		text-decoration: none;
 	}
+}
+
+.contactform {
+	background-color: $gray-100;
+}
+
+footer {
+	background-color: $gray-800;
+	.claim {
+		font-size: 2rem;
+	}
+}
+
+.subfooter {
+	background-color: $black;
 }

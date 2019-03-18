@@ -1457,7 +1457,9 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control {
+.form-control, .gfield input:not([type='checkbox']),
+.gfield select,
+.gfield textarea {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -1473,25 +1475,38 @@ pre {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
-    .form-control {
+    .form-control, .gfield input:not([type='checkbox']),
+    .gfield select,
+    .gfield textarea {
       transition: none; } }
-  .form-control::-ms-expand {
+  .form-control::-ms-expand, .gfield input:not([type='checkbox'])::-ms-expand,
+  .gfield select::-ms-expand,
+  .gfield textarea::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus {
+  .form-control:focus, .gfield input:focus:not([type='checkbox']),
+  .gfield select:focus,
+  .gfield textarea:focus {
     color: #495057;
     background-color: #fff;
     border-color: #ff8080;
     outline: 0;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(255, 0, 0, 0.25); }
-  .form-control::placeholder {
+  .form-control::placeholder, .gfield input:not([type='checkbox'])::placeholder,
+  .gfield select::placeholder,
+  .gfield textarea::placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:disabled, .form-control[readonly] {
+  .form-control:disabled, .gfield input:disabled:not([type='checkbox']),
+  .gfield select:disabled,
+  .gfield textarea:disabled, .form-control[readonly], .gfield input[readonly]:not([type='checkbox']),
+  .gfield select[readonly],
+  .gfield textarea[readonly] {
     background-color: #e1e1e1;
     opacity: 1; }
 
-select.form-control:focus::-ms-value {
+select.form-control:focus::-ms-value,
+.gfield select:focus::-ms-value {
   color: #495057;
   background-color: #fff; }
 
@@ -1546,13 +1561,16 @@ select.form-control:focus::-ms-value {
   font-size: 1.25rem;
   line-height: 1.5; }
 
-select.form-control[size], select.form-control[multiple] {
+select.form-control[size],
+.gfield select[size], select.form-control[multiple],
+.gfield select[multiple] {
   height: auto; }
 
-textarea.form-control {
+textarea.form-control,
+.gfield textarea {
   height: auto; }
 
-.form-group {
+.form-group, .gfield {
   margin-bottom: 1rem; }
 
 .form-text {
@@ -1574,11 +1592,11 @@ textarea.form-control {
   display: block;
   padding-left: 1.25rem; }
 
-.form-check-input {
+.form-check-input, .gfield input[type="checkbox"] {
   position: absolute;
   margin-top: 0.3rem;
   margin-left: -1.25rem; }
-  .form-check-input:disabled ~ .form-check-label {
+  .form-check-input:disabled ~ .form-check-label, .gfield input[type="checkbox"]:disabled ~ .form-check-label {
     color: #6c757d; }
 
 .form-check-label {
@@ -1589,7 +1607,7 @@ textarea.form-control {
   align-items: center;
   padding-left: 0;
   margin-right: 0.75rem; }
-  .form-check-inline .form-check-input {
+  .form-check-inline .form-check-input, .form-check-inline .gfield input[type="checkbox"], .gfield .form-check-inline input[type="checkbox"] {
     position: static;
     margin-top: 0;
     margin-right: 0.3125rem;
@@ -1615,22 +1633,52 @@ textarea.form-control {
   color: #fff;
   background-color: rgba(40, 167, 69, 0.9); }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid, .was-validated .gfield input:valid:not([type='checkbox']), .gfield .was-validated input:valid:not([type='checkbox']),
+.was-validated .gfield select:valid,
+.gfield .was-validated select:valid,
+.was-validated .gfield textarea:valid,
+.gfield .was-validated textarea:valid, .form-control.is-valid, .gfield input.is-valid:not([type='checkbox']),
+.gfield select.is-valid,
+.gfield textarea.is-valid {
   border-color: #28a745;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  .was-validated .form-control:valid:focus, .was-validated .gfield input:valid:focus:not([type='checkbox']), .gfield .was-validated input:valid:focus:not([type='checkbox']),
+  .was-validated .gfield select:valid:focus,
+  .gfield .was-validated select:valid:focus,
+  .was-validated .gfield textarea:valid:focus,
+  .gfield .was-validated textarea:valid:focus, .form-control.is-valid:focus, .gfield input.is-valid:focus:not([type='checkbox']),
+  .gfield select.is-valid:focus,
+  .gfield textarea.is-valid:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
-  .was-validated .form-control:valid ~ .valid-feedback,
-  .was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
-  .form-control.is-valid ~ .valid-tooltip {
+  .was-validated .form-control:valid ~ .valid-feedback, .was-validated .gfield input:valid:not([type='checkbox']) ~ .valid-feedback, .gfield .was-validated input:valid:not([type='checkbox']) ~ .valid-feedback,
+  .was-validated .gfield select:valid ~ .valid-feedback,
+  .gfield .was-validated select:valid ~ .valid-feedback,
+  .was-validated .gfield textarea:valid ~ .valid-feedback,
+  .gfield .was-validated textarea:valid ~ .valid-feedback,
+  .was-validated .form-control:valid ~ .valid-tooltip,
+  .was-validated .gfield input:valid:not([type='checkbox']) ~ .valid-tooltip,
+  .gfield .was-validated input:valid:not([type='checkbox']) ~ .valid-tooltip,
+  .was-validated .gfield select:valid ~ .valid-tooltip,
+  .gfield .was-validated select:valid ~ .valid-tooltip,
+  .was-validated .gfield textarea:valid ~ .valid-tooltip,
+  .gfield .was-validated textarea:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .gfield input.is-valid:not([type='checkbox']) ~ .valid-feedback,
+  .gfield select.is-valid ~ .valid-feedback,
+  .gfield textarea.is-valid ~ .valid-feedback,
+  .form-control.is-valid ~ .valid-tooltip,
+  .gfield input.is-valid:not([type='checkbox']) ~ .valid-tooltip,
+  .gfield select.is-valid ~ .valid-tooltip,
+  .gfield textarea.is-valid ~ .valid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
+.was-validated textarea.form-control:valid,
+.was-validated .gfield textarea:valid,
+.gfield .was-validated textarea:valid, textarea.form-control.is-valid,
+.gfield textarea.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
@@ -1651,11 +1699,14 @@ textarea.form-control {
 .form-control-file.is-valid ~ .valid-tooltip {
   display: block; }
 
-.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+.was-validated .form-check-input:valid ~ .form-check-label, .was-validated .gfield input[type="checkbox"]:valid ~ .form-check-label, .gfield .was-validated input[type="checkbox"]:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label, .gfield input.is-valid[type="checkbox"] ~ .form-check-label {
   color: #28a745; }
-.was-validated .form-check-input:valid ~ .valid-feedback,
-.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
-.form-check-input.is-valid ~ .valid-tooltip {
+.was-validated .form-check-input:valid ~ .valid-feedback, .was-validated .gfield input[type="checkbox"]:valid ~ .valid-feedback, .gfield .was-validated input[type="checkbox"]:valid ~ .valid-feedback,
+.was-validated .form-check-input:valid ~ .valid-tooltip,
+.was-validated .gfield input[type="checkbox"]:valid ~ .valid-tooltip,
+.gfield .was-validated input[type="checkbox"]:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback, .gfield input.is-valid[type="checkbox"] ~ .valid-feedback,
+.form-check-input.is-valid ~ .valid-tooltip,
+.gfield input.is-valid[type="checkbox"] ~ .valid-tooltip {
   display: block; }
 
 .was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {
@@ -1704,22 +1755,52 @@ textarea.form-control {
   color: #fff;
   background-color: rgba(255, 0, 0, 0.9); }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .form-control:invalid, .was-validated .gfield input:invalid:not([type='checkbox']), .gfield .was-validated input:invalid:not([type='checkbox']),
+.was-validated .gfield select:invalid,
+.gfield .was-validated select:invalid,
+.was-validated .gfield textarea:invalid,
+.gfield .was-validated textarea:invalid, .form-control.is-invalid, .gfield input.is-invalid:not([type='checkbox']),
+.gfield select.is-invalid,
+.gfield textarea.is-invalid {
   border-color: #f00;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23f00' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
   background-repeat: no-repeat;
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  .was-validated .form-control:invalid:focus, .was-validated .gfield input:invalid:focus:not([type='checkbox']), .gfield .was-validated input:invalid:focus:not([type='checkbox']),
+  .was-validated .gfield select:invalid:focus,
+  .gfield .was-validated select:invalid:focus,
+  .was-validated .gfield textarea:invalid:focus,
+  .gfield .was-validated textarea:invalid:focus, .form-control.is-invalid:focus, .gfield input.is-invalid:focus:not([type='checkbox']),
+  .gfield select.is-invalid:focus,
+  .gfield textarea.is-invalid:focus {
     border-color: #f00;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25); }
-  .was-validated .form-control:invalid ~ .invalid-feedback,
-  .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
-  .form-control.is-invalid ~ .invalid-tooltip {
+  .was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .gfield input:invalid:not([type='checkbox']) ~ .invalid-feedback, .gfield .was-validated input:invalid:not([type='checkbox']) ~ .invalid-feedback,
+  .was-validated .gfield select:invalid ~ .invalid-feedback,
+  .gfield .was-validated select:invalid ~ .invalid-feedback,
+  .was-validated .gfield textarea:invalid ~ .invalid-feedback,
+  .gfield .was-validated textarea:invalid ~ .invalid-feedback,
+  .was-validated .form-control:invalid ~ .invalid-tooltip,
+  .was-validated .gfield input:invalid:not([type='checkbox']) ~ .invalid-tooltip,
+  .gfield .was-validated input:invalid:not([type='checkbox']) ~ .invalid-tooltip,
+  .was-validated .gfield select:invalid ~ .invalid-tooltip,
+  .gfield .was-validated select:invalid ~ .invalid-tooltip,
+  .was-validated .gfield textarea:invalid ~ .invalid-tooltip,
+  .gfield .was-validated textarea:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .gfield input.is-invalid:not([type='checkbox']) ~ .invalid-feedback,
+  .gfield select.is-invalid ~ .invalid-feedback,
+  .gfield textarea.is-invalid ~ .invalid-feedback,
+  .form-control.is-invalid ~ .invalid-tooltip,
+  .gfield input.is-invalid:not([type='checkbox']) ~ .invalid-tooltip,
+  .gfield select.is-invalid ~ .invalid-tooltip,
+  .gfield textarea.is-invalid ~ .invalid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+.was-validated textarea.form-control:invalid,
+.was-validated .gfield textarea:invalid,
+.gfield .was-validated textarea:invalid, textarea.form-control.is-invalid,
+.gfield textarea.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
@@ -1740,11 +1821,14 @@ textarea.form-control {
 .form-control-file.is-invalid ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+.was-validated .form-check-input:invalid ~ .form-check-label, .was-validated .gfield input[type="checkbox"]:invalid ~ .form-check-label, .gfield .was-validated input[type="checkbox"]:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label, .gfield input.is-invalid[type="checkbox"] ~ .form-check-label {
   color: #f00; }
-.was-validated .form-check-input:invalid ~ .invalid-feedback,
-.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,
-.form-check-input.is-invalid ~ .invalid-tooltip {
+.was-validated .form-check-input:invalid ~ .invalid-feedback, .was-validated .gfield input[type="checkbox"]:invalid ~ .invalid-feedback, .gfield .was-validated input[type="checkbox"]:invalid ~ .invalid-feedback,
+.was-validated .form-check-input:invalid ~ .invalid-tooltip,
+.was-validated .gfield input[type="checkbox"]:invalid ~ .invalid-tooltip,
+.gfield .was-validated input[type="checkbox"]:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback, .gfield input.is-invalid[type="checkbox"] ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-tooltip,
+.gfield input.is-invalid[type="checkbox"] ~ .invalid-tooltip {
   display: block; }
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label {
@@ -1785,13 +1869,17 @@ textarea.form-control {
       align-items: center;
       justify-content: center;
       margin-bottom: 0; }
-    .form-inline .form-group {
+    .form-inline .form-group, .form-inline .gfield {
       display: flex;
       flex: 0 0 auto;
       flex-flow: row wrap;
       align-items: center;
       margin-bottom: 0; }
-    .form-inline .form-control {
+    .form-inline .form-control, .form-inline .gfield input:not([type='checkbox']), .gfield .form-inline input:not([type='checkbox']),
+    .form-inline .gfield select,
+    .gfield .form-inline select,
+    .form-inline .gfield textarea,
+    .gfield .form-inline textarea {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -1806,7 +1894,7 @@ textarea.form-control {
       justify-content: center;
       width: auto;
       padding-left: 0; }
-    .form-inline .form-check-input {
+    .form-inline .form-check-input, .form-inline .gfield input[type="checkbox"], .gfield .form-inline input[type="checkbox"] {
       position: relative;
       flex-shrink: 0;
       margin-top: 0;
@@ -2525,7 +2613,9 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%; }
-  .input-group > .form-control,
+  .input-group > .form-control, .gfield .input-group > input:not([type='checkbox']),
+  .gfield .input-group > select,
+  .gfield .input-group > textarea,
   .input-group > .form-control-plaintext,
   .input-group > .custom-select,
   .input-group > .custom-file {
@@ -2533,20 +2623,49 @@ input[type="button"].btn-block {
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0; }
-    .input-group > .form-control + .form-control,
+    .input-group > .form-control + .form-control, .gfield .input-group > input:not([type='checkbox']) + .form-control,
+    .gfield .input-group > select + .form-control,
+    .gfield .input-group > textarea + .form-control, .gfield .input-group > .form-control + input:not([type='checkbox']), .gfield .input-group > input:not([type='checkbox']) + input:not([type='checkbox']),
+    .gfield .input-group > select + input:not([type='checkbox']),
+    .gfield .input-group > textarea + input:not([type='checkbox']),
+    .gfield .input-group > .form-control + select,
+    .gfield .input-group > input:not([type='checkbox']) + select,
+    .gfield .input-group > select + select,
+    .gfield .input-group > textarea + select,
+    .gfield .input-group > .form-control + textarea,
+    .gfield .input-group > input:not([type='checkbox']) + textarea,
+    .gfield .input-group > select + textarea,
+    .gfield .input-group > textarea + textarea,
     .input-group > .form-control + .custom-select,
+    .gfield .input-group > input:not([type='checkbox']) + .custom-select,
+    .gfield .input-group > select + .custom-select,
+    .gfield .input-group > textarea + .custom-select,
     .input-group > .form-control + .custom-file,
+    .gfield .input-group > input:not([type='checkbox']) + .custom-file,
+    .gfield .input-group > select + .custom-file,
+    .gfield .input-group > textarea + .custom-file,
     .input-group > .form-control-plaintext + .form-control,
+    .gfield .input-group > .form-control-plaintext + input:not([type='checkbox']),
+    .gfield .input-group > .form-control-plaintext + select,
+    .gfield .input-group > .form-control-plaintext + textarea,
     .input-group > .form-control-plaintext + .custom-select,
     .input-group > .form-control-plaintext + .custom-file,
     .input-group > .custom-select + .form-control,
+    .gfield .input-group > .custom-select + input:not([type='checkbox']),
+    .gfield .input-group > .custom-select + select,
+    .gfield .input-group > .custom-select + textarea,
     .input-group > .custom-select + .custom-select,
     .input-group > .custom-select + .custom-file,
     .input-group > .custom-file + .form-control,
+    .gfield .input-group > .custom-file + input:not([type='checkbox']),
+    .gfield .input-group > .custom-file + select,
+    .gfield .input-group > .custom-file + textarea,
     .input-group > .custom-file + .custom-select,
     .input-group > .custom-file + .custom-file {
       margin-left: -1px; }
-  .input-group > .form-control:focus,
+  .input-group > .form-control:focus, .gfield .input-group > input:focus:not([type='checkbox']),
+  .gfield .input-group > select:focus,
+  .gfield .input-group > textarea:focus,
   .input-group > .custom-select:focus,
   .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
     z-index: 3; }
@@ -2599,11 +2718,15 @@ input[type="button"].btn-block {
   .input-group-text input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group-lg > .form-control:not(textarea),
+.input-group-lg > .form-control:not(textarea), .gfield .input-group-lg > input:not(textarea):not([type='checkbox']),
+.gfield .input-group-lg > select:not(textarea),
+.gfield .input-group-lg > textarea:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(1.5em + 1rem + 2px); }
 
-.input-group-lg > .form-control,
+.input-group-lg > .form-control, .gfield .input-group-lg > input:not([type='checkbox']),
+.gfield .input-group-lg > select,
+.gfield .input-group-lg > textarea,
 .input-group-lg > .custom-select,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -2613,11 +2736,15 @@ input[type="button"].btn-block {
   font-size: 1.25rem;
   line-height: 1.5; }
 
-.input-group-sm > .form-control:not(textarea),
+.input-group-sm > .form-control:not(textarea), .gfield .input-group-sm > input:not(textarea):not([type='checkbox']),
+.gfield .input-group-sm > select:not(textarea),
+.gfield .input-group-sm > textarea:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.5em + 0.5rem + 2px); }
 
-.input-group-sm > .form-control,
+.input-group-sm > .form-control, .gfield .input-group-sm > input:not([type='checkbox']),
+.gfield .input-group-sm > select,
+.gfield .input-group-sm > textarea,
 .input-group-sm > .custom-select,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
@@ -7384,10 +7511,10 @@ a.text-info:hover, a.text-info:focus {
 a.text-warning:hover, a.text-warning:focus {
   color: #ba8b00 !important; }
 
-.text-danger {
+.text-danger, .gform_wrapper .gfield_error .gfield_label, .gform_wrapper .validation_message {
   color: #f00 !important; }
 
-a.text-danger:hover, a.text-danger:focus {
+a.text-danger:hover, .gform_wrapper .gfield_error a.gfield_label:hover, .gform_wrapper a.validation_message:hover, a.text-danger:focus, .gform_wrapper .gfield_error a.gfield_label:focus, .gform_wrapper a.validation_message:focus {
   color: #b30000 !important; }
 
 .text-light {
@@ -13913,6 +14040,27 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Pro';
   font-weight: 300; }
 
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../../dist-assets/fonts/fa-regular-400.eot");
+  src: url("../../dist-assets/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../dist-assets/fonts/fa-regular-400.woff2") format("woff2"), url("../../dist-assets/fonts/fa-regular-400.woff") format("woff"), url("../../dist-assets/fonts/fa-regular-400.ttf") format("truetype"), url("../../dist-assets/fonts/fa-regular-400.svg#fontawesome") format("svg"); }
+.far {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url("../../dist-assets/fonts/fa-brands-400.eot");
+  src: url("../../dist-assets/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../dist-assets/fonts/fa-brands-400.woff2") format("woff2"), url("../../dist-assets/fonts/fa-brands-400.woff") format("woff"), url("../../dist-assets/fonts/fa-brands-400.ttf") format("truetype"), url("../../dist-assets/fonts/fa-brands-400.svg#fontawesome") format("svg"); }
+.fab {
+  font-family: 'Font Awesome 5 Brands'; }
+
 @-webkit-keyframes rotating {
   from {
     -webkit-transform: rotate(0deg);
@@ -13928,7 +14076,7 @@ readers do not read off random characters that represent icons */
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 #mainmenu-container .nav .nav-item .nav-link:before, .owl-carousel .owl-prev,
-.owl-carousel .owl-next, .offer-item .inner {
+.owl-carousel .owl-next, .offer-item .inner, .subscribe-item .inner .item-meta .meta .inner-meta .meta-icon-container i, .subscribe-item .inner .item-meta .meta .inner-meta .meta-txt {
   -webkit-transition: all .5s ease 0s;
   transition: all .5s ease 0s; }
 
@@ -14154,14 +14302,20 @@ body {
           color: #f00;
           padding-left: 8px;
           padding-right: 8px;
-          -webkit-transform: translate(7%, 25%);
-          transform: translate(7%, 25%); }
+          -webkit-transform: translate(7%, 10%);
+          transform: translate(7%, 10%); }
         .subscribe-item .inner .item-meta .meta .inner-meta .meta-txt {
           background-color: #fff;
           display: inline-block;
           padding: 7px 12px 6px;
           border-left: 1px solid #e1e1e1;
-          border-right: 1px solid #e1e1e1; }
+          border-right: 1px solid #e1e1e1;
+          cursor: default; }
+      .subscribe-item .inner .item-meta .meta:hover .inner-meta .meta-icon-container i {
+        color: #000; }
+      .subscribe-item .inner .item-meta .meta:hover .inner-meta .meta-txt {
+        background-color: #000;
+        color: #f00; }
 
 .map {
   width: 100%;
@@ -14170,5 +14324,24 @@ body {
     max-width: inherit !important; }
   .map h4 {
     text-decoration: none; }
+
+.contactform {
+  background-color: #f6f6f6; }
+
+footer {
+  background-color: #343a40; }
+  footer .claim {
+    font-size: 2rem; }
+
+.subfooter {
+  background-color: #000; }
+
+.gfield .gfield_checkbox label {
+  margin-left: 20px !important;
+  margin-top: 4px !important; }
+
+.validation_error {
+  color: #f00 !important;
+  border-color: #f00 !important; }
 
 /*# sourceMappingURL=theme.css.map */

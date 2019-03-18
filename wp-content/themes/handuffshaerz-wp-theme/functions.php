@@ -14,6 +14,7 @@ define( 'DIST_JS', THEME_URI . '/dist-assets/js' );
 /***************************************
  * Include helpers
  ***************************************/
+require_once 'inc/gravityforms.php';
 
 /***************************************
  * 		Theme Support and Options

@@ -3,15 +3,36 @@
 
 	//Scrollspy aktivieren
 	$('body').scrollspy({
-		target: '#mainmenu-container'
+		target: '#mainmenu-container',
+		offset: 80
 	});
 
 	//Header verändern beim scrollen
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
 			$('.header').addClass('fixed-top');
+			$('[data-spy="scroll"]').each(function () {
+				var $spy = $(this).scrollspy('refresh')
+			})
 		} else {
 			$('.header').removeClass('fixed-top');
+			$('[data-spy="scroll"]').each(function () {
+				var $spy = $(this).scrollspy('refresh')
+			})
+		}
+	});
+
+	//Beim Klick auf Link im Menü mit jquery animiert scrollen
+	$('a[href^="#"]').on('click', function(e) {
+		if (this.hash !== "") {
+			stopDefault(e);
+			var hash = this.hash;
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top - 100
+			}, 900, 'swing', function(){
+				window.location.hash = hash;
+				return false;
+			});
 		}
 	});
 
@@ -88,5 +109,14 @@
 	$('.map').each(function(){
 		new_map( $(this) );
 	});
+
+	//Browser Aktionen stoppen
+	function stopDefault(evt) {
+		if (evt && evt.preventDefault) {
+			evt.preventDefault();
+		} else if (window.event && window.event.returnValue) {
+			window.event.returnValue = false;
+		}
+	}
 
 })(jQuery);

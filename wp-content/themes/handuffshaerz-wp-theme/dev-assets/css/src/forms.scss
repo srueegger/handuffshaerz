@@ -1,0 +1,33 @@
+.gfield {
+	@extend .form-group;
+	input:not([type='checkbox']),
+	select,
+	textarea {
+		@extend .form-control;
+	}
+	input[type="checkbox"] {
+		@extend .form-check-input;
+	}
+	.gfield_checkbox {
+		label {
+			margin-left: 20px !important;
+			margin-top: 4px !important;
+		}
+	}
+}
+
+.validation_error {
+	color: $red !important;
+	border-color: $red !important;
+}
+
+.gform_wrapper {
+	.gfield_error {
+		.gfield_label {
+			@extend .text-danger;
+		}
+	}
+	.validation_message {
+		@extend .text-danger;
+	}
+}

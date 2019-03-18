@@ -21,6 +21,7 @@ module.exports = function( grunt ) {
 					'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
 					'node_modules/owl.carousel/dist/owl.carousel.min.js',
 					'node_modules/jquery-match-height/dist/jquery.matchHeight-min.js',
+					'node_modules/jquery-aniview/dist/jquery.aniview.js',
                     'dev-assets/js/src/main.js'
                 ],
                 dest: 'dev-assets/js/theme.js'

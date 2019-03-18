@@ -18,6 +18,92 @@ display:n};a[s.property]="",e.css(a),e.outerHeight(!1)>i&&(i=e.outerHeight(!1)),
 this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").each(function(){var o=t(this),n=o.attr("data-mh")||o.attr("data-match-height");n in e?e[n]=e[n].add(o):e[n]=o}),t.each(e,function(){this.matchHeight(!0)})};var s=function(e){r._beforeUpdate&&r._beforeUpdate(e,r._groups),t.each(r._groups,function(){r._apply(this.elements,this.options)}),r._afterUpdate&&r._afterUpdate(e,r._groups)};r._update=function(n,a){if(a&&"resize"===a.type){var i=t(window).width();if(i===e)return;e=i;
 }n?o===-1&&(o=setTimeout(function(){s(a),o=-1},r._throttle)):s(a)},t(r._applyDataApi);var h=t.fn.on?"on":"bind";t(window)[h]("load",function(t){r._update(!1,t)}),t(window)[h]("resize orientationchange",function(t){r._update(!0,t)})});
 (function($) {
+
+    //custom scroll replacement to allow for interval-based 'polling'
+    //rathar than checking on every pixel
+    var uniqueCntr = 0;
+    $.fn.scrolled = function(waitTime, fn) {
+        if (typeof waitTime === 'function') {
+            fn = waitTime;
+            waitTime = 200;
+        }
+        var tag = 'scrollTimer' + uniqueCntr++;
+        this.scroll(function() {
+            var self = $(this);
+            var timer = self.data(tag);
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function() {
+                self.removeData(tag);
+                fn.call(self[0]);
+            }, waitTime);
+            self.data(tag, timer);
+        });
+    };
+
+    $.fn.AniView = function(options) {
+
+        //some default settings. animateThreshold controls the trigger point
+        //for animation and is subtracted from the bottom of the viewport.
+        var settings = $.extend({
+            animateThreshold: 0,
+            scrollPollInterval: 20
+        }, options);
+
+        //keep the matched elements in a variable for easy reference
+        var collection = this;
+
+        //cycle through each matched element and wrap it in a block/div
+        //and then proceed to fade out the inner contents of each matched element
+        $(collection).each(function(index, element) {
+            $(element).wrap('<div class="av-container"></div>');
+            $(element).css('opacity', 0);
+        });
+
+        /**
+         * returns boolean representing whether element's top is coming into bottom of viewport
+         *
+         * @param HTMLDOMElement element the current element to check
+         */
+        function EnteringViewport(element) {
+            var elementOffset = $(element).offset();
+            var elementTop = elementOffset.top + $(element).scrollTop();
+            var elementBottom = elementOffset.top + $(element).scrollTop() + $(element).height();
+            var viewportBottom = $(window).scrollTop() + $(window).height();
+            return (elementTop < (viewportBottom - settings.animateThreshold)) ? true : false;
+        }
+
+        /**
+         * cycle through each element in the collection to make sure that any
+         * elements which should be animated into view, are...
+         *
+         * @param collection of elements to check
+         */
+        function RenderElementsCurrentlyInViewport(collection) {
+            $(collection).each(function(index, element) {
+                var elementParentContainer = $(element).parent('.av-container');
+                if ($(element).is('[data-av-animation]') && !$(elementParentContainer).hasClass('av-visible') && EnteringViewport(elementParentContainer)) {
+                    $(element).css('opacity', 1);
+                    $(elementParentContainer).addClass('av-visible');
+                    $(element).addClass('animated ' + $(element).attr('data-av-animation'));
+                }
+            });
+        }
+
+        //on page load, render any elements that are currently in view
+        RenderElementsCurrentlyInViewport(collection);
+
+        //enable the scrolled event timer to watch for elements coming into the viewport
+        //from the bottom. default polling time is 20 ms. This can be changed using
+        //'scrollPollInterval' from the user visible options
+        $(window).scrolled(settings.scrollPollInterval, function() {
+            RenderElementsCurrentlyInViewport(collection);
+        });
+    };
+})(jQuery);
+
+(function($) {
 	'use strict';
 
 	//Scrollspy aktivieren
@@ -55,8 +141,8 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
 		}
 	});
 
-	//Slider aktivieren
-	$('.owl-carousel').owlCarousel({
+	//Slider in der Home Sektion aktivieren
+	$('.homecarousel').owlCarousel({
 		items: 1,
 		loop: true,
 		nav: true,
@@ -66,6 +152,19 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
 		autoplayTimeout: 3000,
 		animateOut: 'slideOutDown',
 		animateIn: 'flipInX',
+		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
+	});
+
+	//Team Slider aktivieren
+	$('.teamcarousel').owlCarousel({
+		items: 3,
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplay: true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 5000,
+		margin: 30,
 		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
 	});
 
@@ -137,5 +236,8 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
 			window.event.returnValue = false;
 		}
 	}
+
+	//Elemente beim herunterscrollen animiert einblenden
+	$('.animatein').AniView();
 
 })(jQuery);

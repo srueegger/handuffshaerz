@@ -10,7 +10,7 @@ $gray-100: #f6f6f6 !default; //use
 $gray-200: #e1e1e1 !default; //use
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
+$gray-500: #c4c4c4 !default; //use
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
@@ -308,8 +308,8 @@ $use-bounce-in          :   $use-bounce !default;
 $use-bounceIn			:	$use-bounce-in !default;
 $use-bounceInUp			: 	$use-bounce-in !default;
 $use-bounceInDown 		: 	$use-bounce-in !default;
-$use-bounceInLeft 		: 	$use-bounce-in !default;
-$use-bounceInRight 		: 	$use-bounce-in !default;
+$use-bounceInLeft 		: 	true !default;
+$use-bounceInRight 		: 	true !default;
 
 
 // Bounce Exit

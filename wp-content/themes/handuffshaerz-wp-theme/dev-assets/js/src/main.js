@@ -36,8 +36,8 @@
 		}
 	});
 
-	//Slider aktivieren
-	$('.owl-carousel').owlCarousel({
+	//Slider in der Home Sektion aktivieren
+	$('.homecarousel').owlCarousel({
 		items: 1,
 		loop: true,
 		nav: true,
@@ -47,6 +47,19 @@
 		autoplayTimeout: 3000,
 		animateOut: 'slideOutDown',
 		animateIn: 'flipInX',
+		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
+	});
+
+	//Team Slider aktivieren
+	$('.teamcarousel').owlCarousel({
+		items: 3,
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplay: true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 5000,
+		margin: 30,
 		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
 	});
 
@@ -118,5 +131,8 @@
 			window.event.returnValue = false;
 		}
 	}
+
+	//Elemente beim herunterscrollen animiert einblenden
+	$('.animatein').AniView();
 
 })(jQuery);

@@ -16,7 +16,11 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-3">
-								SOCIAL MEDIA ICONS
+								<div class="headericons">
+									<ul class="list-inline">
+										<li class="list-inline-item"><a href="#" target="_blank"><i style="color: #3b5998;" class="fab fa-facebook fa-3x fa-fw"></i></a></li>
+									</ul>
+								</div>
 							</div>
 							<div class="col-6 text-center">
 								<a href="<?php echo HOME_URI; ?>">
@@ -26,7 +30,7 @@
 								</a>
 							</div>
 							<div class="col-3">
-								KONTAKTINFO
+								<h1 class="pageinfo"><?php bloginfo('description'); ?><h1>
 							</div>
 						</div>
 					</div>
@@ -49,6 +53,9 @@
 								<a class="nav-link" href="#subscribe">Kurs Anmeldung</a>
 							</li>
 							<li class="nav-item">
+								<a class="nav-link" href="#team">Team</a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link" href="#contact">Kontakt</a>
 							</li>
 						</ul>
@@ -58,7 +65,7 @@
 		</header>
 		<main>
 			<section class="section" id="home">
-				<div class="owl-carousel owl-theme">
+				<div class="owl-carousel owl-theme homecarousel">
 					<div>
 						<picture>
 							<img src="https://via.placeholder.com/1920x1080/0000FF" alt="">
@@ -97,60 +104,72 @@
 					</div>
 				</div>
 			</section>
-			<section class="section my-5" id="aboutus">
+			<section class="section mb-5 mt-3" id="aboutus">
 				<div class="container">
 					<div class="row">
 						<div class="col-12 text-center mb-5">
 							<h2>Über uns</h2>
 						</div>
-						<div class="row">
+						<div class="row mb-5">
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-bolt fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInLeft" class="animatein speed-1">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-bolt fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-archway fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInRight" class="animatein speed-2">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-archway fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-atom fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInLeft" class="animatein speed-3">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-atom fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-baby fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInRight" class="animatein speed-4">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-baby fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-bat fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInLeft" class="animatein speed-5">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-bat fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 							<div class="col-12 col-md-6 aboutus-item">
-								<span class="fa-stack fa-3x">
-									<i class="fas fa-heart fa-stack-2x"></i>
-									<i class="fas fa-cat fa-stack-1x fa-inverse"></i>
-								</span>
-								<h3 class="mb-4">Lorem Ipsum</h3>
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								<div data-av-animation="bounceInRight" class="animatein speed-6">
+									<span class="fa-stack fa-3x">
+										<i class="fas fa-heart fa-stack-2x"></i>
+										<i class="fas fa-cat fa-stack-1x fa-inverse"></i>
+									</span>
+									<h3 class="mb-4">Lorem Ipsum</h3>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -233,6 +252,121 @@
 								</div>
 								<p>Die Bezeichnung «BLS-AED» steht für die beiden Begriffe «Basic Life Support» und «Automated External Defibrillator». Der Kurs vermittelt das richtige Verhalten in Notsituationen und erklärt das Zusammenspiel von Herz-Lungen-Wiederbelebung und dem Einsatz eines automatisierten externen Defibrillators. Der BLS-AED-SRC-Komplettkurs ist durch das SRC (Swiss Resuscitation Council) anerkannt</p>
 								<p><button type="button" class="btn btn-outline-primary w-100">Jetzt anmelden!</button></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section" id="team">
+				<div class="container mb-5">
+					<div class="row mb-5">
+						<div class="col-12 text-center">
+							<h2>Team</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="owl-carousel owl-theme teamcarousel">
+								<div class="team-item">
+									<div class="inner">
+										<picture>
+											<img src="https://via.placeholder.com/270x340/0000FF" alt="" class="img-fluid">
+										</picture>
+										<h3>
+											Max Meier
+											<span class="borderspan"></span>
+											<span class="borderspan"></span>
+										</h3>
+										<span class="team-function">Kursleiter</span>
+										<ul>
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-xing-square"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="team-item">
+									<div class="inner">
+										<picture>
+											<img src="https://via.placeholder.com/270x340/0000FF" alt="" class="img-fluid">
+										</picture>
+										<h3>
+											Max Meier
+											<span class="borderspan"></span>
+											<span class="borderspan"></span>
+										</h3>
+										<span class="team-function">Kursleiter</span>
+										<ul>
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-xing-square"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="team-item">
+									<div class="inner">
+										<picture>
+											<img src="https://via.placeholder.com/270x340/0000FF" alt="" class="img-fluid">
+										</picture>
+										<h3>
+											Max Meier
+											<span class="borderspan"></span>
+											<span class="borderspan"></span>
+										</h3>
+										<span class="team-function">Kursleiter</span>
+										<ul>
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-xing-square"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="team-item">
+									<div class="inner">
+										<picture>
+											<img src="https://via.placeholder.com/270x340/0000FF" alt="" class="img-fluid">
+										</picture>
+										<h3>
+											Max Meier
+											<span class="borderspan"></span>
+											<span class="borderspan"></span>
+										</h3>
+										<span class="team-function">Kursleiter</span>
+										<ul>
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-xing-square"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="team-item">
+									<div class="inner">
+										<picture>
+											<img src="https://via.placeholder.com/270x340/0000FF" alt="" class="img-fluid">
+										</picture>
+										<h3>
+											Max Meier
+											<span class="borderspan"></span>
+											<span class="borderspan"></span>
+										</h3>
+										<span class="team-function">Kursleiter</span>
+										<ul>
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-xing-square"></i></a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

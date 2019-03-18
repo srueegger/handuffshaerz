@@ -38,13 +38,16 @@ add_action( 'after_setup_theme', 'register_huh_menu' );
  * 		Enqueue scripts and styles.
  ***************************************/
 function huh_startup_scripts() {
-	wp_enqueue_style( "huh-google-font", 'https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Montserrat:400,700' );
+	//Google Fonts
+	wp_enqueue_style( 'huh-google-font', 'https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Montserrat:400,700' );
+	//Google Maps
+	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQtwK65Jm6aNAuB5ep1JmwutTBT-pFKlM&language=de-CH&region=CH', null, null, true );
 	if (WP_DEBUG) {
 		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1' );
-		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery'), '1', true );
+		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1', true );
 	} else {
 		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1' );
-		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery'), '1', true );
+		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1', true );
 	}
 	$global_vars = array(
 		'ajaxurl' => admin_url('admin-ajax.php')
@@ -65,6 +68,8 @@ function huh_acf_init() {
 		'parent_slug' => 'options-general.php',
 	);
 	acf_add_options_sub_page($args);
+	//Google Maps initialisieren
+	acf_update_setting('google_api_key', 'AIzaSyB8JdkWhYxFGfvyQAwfrtYAHgjpcylRejs');
 }
 //add_action( 'acf/init', 'huh_acf_init' );
 

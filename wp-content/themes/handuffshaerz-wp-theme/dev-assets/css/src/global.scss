@@ -21,10 +21,6 @@ body {
 	}
 }
 
-.section {
-	//height: calc(100vh - 10px);
-}
-
 .alwaysmenu {
 	position: absolute;
 	left: 0;
@@ -150,4 +146,130 @@ body {
 .owl-prev {
 	left: 15px;
 	padding-right: 22px;
+}
+
+.aboutus-item {
+	text-align: left;
+	padding-right: 125px;
+	padding-left: 0;
+	.fa-stack {
+		position: absolute;
+		bottom: 50%;
+		left: auto;
+		right: 0;
+		-webkit-transform: translateY(50%);
+				transform: translateY(50%);
+		.fa-stack-2x {
+			color: $red;
+		}
+		.fa-stack-1x {
+			color: $white;
+		}
+		&:hover {
+			.fa-stack-1x {
+				-webkit-animation: rotating 2s linear infinite;
+				        animation: rotating 2s linear infinite;
+			}
+		}
+	}
+	&:nth-child(even) {
+		text-align: right;
+		padding-left: 125px;
+		padding-right: 0;
+		.fa-stack {
+			left: 0;
+			right: auto;
+		}
+	}
+}
+
+#offer {
+	background-color: $black;
+}
+
+.offer-item {
+	text-align: center;
+	.inner {
+		background-color: $white;
+		padding: 1rem;
+		@extend %animation;
+		i {
+			color: $red;
+		}
+		.btn {
+			background-color: $red;
+			color: $white;
+		}
+	}
+	&:hover {
+		.inner {
+			background-color: $red;
+			h3,
+			p,
+			i {
+				color: $white;
+			}
+			.btn {
+				background-color: $white;
+				color: $red;
+			}
+		}
+	}
+}
+
+.subscribe-item {
+	img {
+		border: 10px solid $red;
+	}
+	.inner {
+		background-color: $gray-100;
+		padding: 1rem;
+		.item-meta {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 10px;
+			margin-top: 9px;
+			.meta {
+				display: inline-block;
+				max-width: 100%;
+				font-size: .75rem;
+				letter-spacing: .24px;
+				vertical-align: middle;
+				margin-right: 10px;
+				.inner-meta {
+					border: 1px solid $gray-200;
+					padding-top: 8px;
+					padding-bottom: 8px;
+					.meta-icon-container {
+						i {
+							font-size: 1rem;
+							color: $red;
+							padding-left: 8px;
+							padding-right: 8px;
+							-webkit-transform: translate(7%, 25%);
+									transform: translate(7%, 25%);
+						}
+					}
+					.meta-txt {
+						background-color: $white;
+						display: inline-block;
+						padding: 7px 12px 6px;
+						border-left: 1px solid $gray-200;
+						border-right: 1px solid $gray-200;
+					}
+				}
+			}
+		}
+	}
+}
+
+.map {
+	width: 100%;
+	height: 600px;
+	img {
+		max-width: inherit !important;
+	}
+	h4 {
+		text-decoration: none;
+	}
 }

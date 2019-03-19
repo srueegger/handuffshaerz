@@ -16,7 +16,9 @@ define( 'DIST_JS', THEME_URI . '/dist-assets/js' );
  ***************************************/
 require_once 'inc/gravityforms.php';
 require_once 'inc/disable-gutenberg.php';
-require_once 'inc/acf.php';
+if(!WP_DEBUG):
+	require_once 'inc/acf.php';
+endif;
 
 /***************************************
  * 		Theme Support and Options

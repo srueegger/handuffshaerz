@@ -14457,7 +14457,7 @@ body {
     .aboutus-item {
       text-align: left;
       padding-right: 125px;
-      padding-left: 0; }
+      padding-left: 15px; }
       .aboutus-item .fa-stack {
         position: absolute;
         bottom: 50%;
@@ -14467,7 +14467,7 @@ body {
       .aboutus-item:nth-child(even) {
         text-align: right;
         padding-left: 125px;
-        padding-right: 0; }
+        padding-right: 15px; }
         .aboutus-item:nth-child(even) .fa-stack {
           left: -125px;
           right: auto; } }
@@ -14493,6 +14493,9 @@ body {
     .offer-item:hover .inner p,
     .offer-item:hover .inner i {
       color: #fff; }
+    .offer-item:hover .inner h3 {
+      -webkit-text-decoration-color: #000;
+      text-decoration-color: #000; }
     .offer-item:hover .inner .btn {
       background-color: #fff;
       color: #f00; }

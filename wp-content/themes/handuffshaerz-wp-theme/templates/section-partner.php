@@ -1,43 +1,36 @@
 <section class="section" id="partner">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 text-center my-5">
-				<h2 class="text-white">Partner</h2>
+			<div class="col-12 text-center mb-5">
+				<h2 class="text-white"><?php the_field('front_s3_title'); ?></h2>
 			</div>
 		</div>
-		<div class="row justify-content-center pb-5">
-			<div class="col-12 col-lg-6 offer-item mb-3">
-				<div data-av-animation="flipInY" class="inner animatein spped-1">
-					<i class="fas fa-briefcase-medical fa-4x"></i>
-					<h3 class="my-4">PREVOMED</h3>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<button type="button" class="btn w-100">Mehr erfahren</button>
+		<?php
+		if(have_rows('front_s3_partner')):
+			echo '<div class="row justify-content-center pb-5">';
+			while(have_rows('front_s3_partner')):
+				the_row();
+				$image = get_sub_field('logo');
+				$btn = get_sub_field('btn');
+				?>
+				<div class="col-12 col-lg-6 offer-item mb-3">
+					<div data-av-animation="flipInY" class="inner animatein spped-<?php echo get_row_index(); ?>">
+						<picture>
+							<source srcset="<?php echo $image['sizes']['partnerlogo-xl']; ?>" media="(min-width: 1200px)">
+							<source srcset="<?php echo $image['sizes']['partnerlogo-lg']; ?>" media="(min-width: 992px)">
+							<source srcset="<?php echo $image['sizes']['partnerlogo-md']; ?>" media="(min-width: 768px)">
+							<source srcset="<?php echo $image['sizes']['partnerlogo-sm']; ?>" media="(min-width: 576px)">
+							<img class="img-fluid" src="<?php echo $image['sizes']['partnerlogo-xs']; ?>" alt="<?php echo $logo['alt']; ?>">
+						</picture>
+						<h3 class="my-4"><?php the_sub_field('title'); ?></h3>
+						<?php the_sub_field('txt'); ?>
+						<a href="<?php echo $btn['url']; ?>" target="<?php echo $btn['target']; ?>" class="btn w-100"><?php echo $btn['title']; ?></a>
+					</div>
 				</div>
-			</div>
-			<div class="col-12 col-lg-6 offer-item mb-3">
-				<div data-av-animation="flipInY" class="inner animatein speed-2">
-					<i class="fas fa-briefcase-medical fa-4x"></i>
-					<h3 class="my-4">SanPool</h3>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<button type="button" class="btn w-100">Mehr erfahren</button>
-				</div>
-			</div>
-			<!--<div class="col-12 col-md-4 offer-item mb-3">
-				<div data-av-animation="flipInY" class="inner animatein speed-3">
-					<i class="fas fa-briefcase-medical fa-4x"></i>
-					<h3 class="my-4"></h3>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-					<button type="button" class="btn w-100">Mehr erfahren</button>
-				</div>
-			</div>-->
-		</div>
+				<?php
+			endwhile;
+			echo '</div>';
+		endif;
+		?>
 	</div>
 </section>

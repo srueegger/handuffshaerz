@@ -12,11 +12,22 @@
 				</div>
 			</div>
 		</footer>
-		<div class="subfooter py-5">
-			<div class="container">
+		<div class="subfooter">
+			<div class="container py-5">
 				<div class="row">
 					<div class="col-12 text-center text-white">
 						<p class="mb-0"><i class="far fa-copyright"></i> <?php echo date('Y'); ?> Hand uffs Härz</p>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 text-right">
+						<ul class="linst-inline">
+							<li class="list-inline-item"><a href="#">Impressum</a></li>
+							<li class="list-inline-item"><a href="#">Datenschutz</a></li>
+							<li class="list-inline-item"><a href="#">etc</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>

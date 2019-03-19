@@ -241,7 +241,7 @@ body {
 	@include media-breakpoint-up(md) {
 		text-align: left;
 		padding-right: 125px;
-		padding-left: 0;
+		padding-left: 15px;
 		.fa-stack {
 			position: absolute;
 			bottom: 50%;
@@ -252,7 +252,7 @@ body {
 		&:nth-child(even) {
 			text-align: right;
 			padding-left: 125px;
-			padding-right: 0;
+			padding-right: 15px;
 			.fa-stack {
 				left: -125px;
 				right: auto;
@@ -289,6 +289,10 @@ body {
 			p,
 			i {
 				color: $white;
+			}
+			h3 {
+				-webkit-text-decoration-color: $black;
+				        text-decoration-color: $black;
 			}
 			.btn {
 				background-color: $white;

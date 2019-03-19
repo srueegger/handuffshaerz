@@ -35,6 +35,11 @@ add_image_size( 'fullwidth-lg', 992, 661, true );
 add_image_size( 'fullwidth-md', 768, 512, true );
 add_image_size( 'fullwidth-sm', 576, 384, true );
 add_image_size( 'fullwidth-xs', 400, 267, true );
+add_image_size( 'partnerlogo-xl', 508, 9999, false );
+add_image_size( 'partnerlogo-lg', 420, 9999, false );
+add_image_size( 'partnerlogo-md', 660, 9999, false );
+add_image_size( 'partnerlogo-sm', 352, 9999, false );
+add_image_size( 'partnerlogo-xs', 258, 9999, false );
 
 /***************************************
  * Add Wordpress Menus

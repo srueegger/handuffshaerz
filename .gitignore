@@ -84,5 +84,5 @@ wp-admin/
 node_modules/
 bower_components/
 wp-content/plugins/*
-!wp-content/plugins/civ-cpt-tax/*
+!wp-content/plugins/huh-cpt-tax/*
 *.swp

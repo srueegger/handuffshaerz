@@ -2,3 +2,8 @@
 .setting[data-setting="description"] {
 	display: none !important;
 }
+
+.user-comment-shortcuts-wrap,
+.user-description-wrap {
+	display: none !important;
+}

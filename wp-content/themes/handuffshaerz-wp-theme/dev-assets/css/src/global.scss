@@ -521,8 +521,28 @@ footer {
 	}
 }
 
-.footerlink {
-	&.active {
-		text-decoration: underline;
+.list-inline-item {
+	&.footer {
+		.footerlink {
+			&.active {
+				text-decoration: underline;
+				-webkit-text-decoration-color: $white;
+				        text-decoration-color: $white;
+			}
+			&:hover {
+				-webkit-text-decoration-color: $white;
+				        text-decoration-color: $white;
+			}
+		}
+		&:after {
+			content: "|";
+			color: $white;
+			margin-left: 8px;
+		}
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
 	}
 }

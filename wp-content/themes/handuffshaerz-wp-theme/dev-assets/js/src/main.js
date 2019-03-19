@@ -151,4 +151,11 @@
 		$('#mobilemenu').slideToggle();
 	});
 
+	//Partner Boxen gleich hoch machen
+	$.when( AniView() ).done(function() {
+		$('.offer-item').matchHeight({
+			property : 'min-height'
+		});
+	});
+
 })(jQuery);

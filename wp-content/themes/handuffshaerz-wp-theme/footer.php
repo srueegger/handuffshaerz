@@ -35,7 +35,7 @@
 									if($menuitem->object_id == get_the_ID()):
 										$active = ' active';
 									endif;
-									echo '<li class="list-inline-item"><a class="footerlink'.$active.'" href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
+									echo '<li class="list-inline-item footer"><a class="footerlink'.$active.'" href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
 								endforeach;
 								?>
 							</ul>

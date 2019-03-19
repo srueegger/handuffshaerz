@@ -105,7 +105,7 @@ $yiq-text-light:            $white !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-caret:                                true !default;
+$enable-caret:                                false !default;
 $enable-rounded:                              false !default;
 $enable-shadows:                              true !default;
 $enable-gradients:                            true !default;
@@ -113,7 +113,7 @@ $enable-transitions:                          true !default;
 $enable-prefers-reduced-motion-media-query:   true !default;
 $enable-grid-classes:                         true !default;
 $enable-pointer-cursor-for-buttons:           true !default;
-$enable-print-styles:                         true !default;
+$enable-print-styles:                         false !default;
 $enable-responsive-font-sizes:                true !default;
 $enable-deprecation-messages:                 true !default;
 

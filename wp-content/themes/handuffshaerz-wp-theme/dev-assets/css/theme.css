@@ -8001,6 +8001,85 @@ body {
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown; }
 
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  .hamburger:hover {
+    opacity: 1; }
+  .hamburger.is-active:hover {
+    opacity: 1; }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: #fff; }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block; }
+  .hamburger-inner::before {
+    top: -10px; }
+  .hamburger-inner::after {
+    bottom: -10px; }
+
+/*
+ * Stand
+ */
+.hamburger--stand .hamburger-inner {
+  transition: transform 0.075s 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), background-color 0s 0.075s linear; }
+  .hamburger--stand .hamburger-inner::before {
+    transition: top 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger--stand .hamburger-inner::after {
+    transition: bottom 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--stand.is-active .hamburger-inner {
+  transform: rotate(90deg);
+  background-color: transparent !important;
+  transition: transform 0.075s 0s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0s 0.15s linear; }
+  .hamburger--stand.is-active .hamburger-inner::before {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: top 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .hamburger--stand.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: bottom 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
 .fa,
 .fas,
 .far,
@@ -14186,6 +14265,9 @@ h6,
 .btn {
   text-transform: uppercase; }
 
+html {
+  max-width: 100%; }
+
 body {
   position: relative; }
 
@@ -14200,18 +14282,32 @@ body {
   margin-top: -71px; }
 
 .header {
-  border-top: 10px solid #f00;
+  border-top: none;
   z-index: 1030;
   position: absolute;
   left: 0;
   right: 0; }
   .header.fixed-top {
     position: fixed; }
+  @media (min-width: 992px) {
+    .header {
+      border-top: 10px solid #f00; } }
+
+.hamburger {
+  position: absolute;
+  top: 2px;
+  right: 5px; }
+  .hamburger:focus {
+    outline: none; }
 
 .alwaysmenu {
   position: absolute;
   left: 0;
-  right: 0; }
+  right: 0;
+  background-color: #f00; }
+  @media (min-width: 992px) {
+    .alwaysmenu {
+      background-color: transparent; } }
 
 #mainmenu-container {
   background-color: #f00;
@@ -14250,7 +14346,11 @@ body {
     left: -7px;
     top: 0;
     bottom: 0;
-    width: 22px; }
+    width: 22px;
+    display: none; }
+    @media (min-width: 992px) {
+      #mainmenu-container:before {
+        display: block; } }
   #mainmenu-container:after {
     content: "";
     border-top: 59px solid #f00;
@@ -14259,7 +14359,11 @@ body {
     right: -7px;
     top: 0;
     bottom: 0;
-    width: 22px; }
+    width: 22px;
+    display: none; }
+    @media (min-width: 992px) {
+      #mainmenu-container:after {
+        display: block; } }
 
 .homecarousel .owl-item img {
   width: 100%;
@@ -14311,23 +14415,32 @@ body {
   padding-right: 22px; }
 
 .teamcarousel .owl-next {
-  right: -90px;
+  right: 0;
   padding-left: 22px; }
 .teamcarousel .owl-prev {
-  left: -90px;
+  left: 0;
   padding-right: 22px; }
+@media (min-width: 992px) {
+  .teamcarousel .owl-next {
+    right: -90px; }
+  .teamcarousel .owl-prev {
+    left: -90px; } }
+
+.aboutus-container {
+  max-width: 100%;
+  overflow-x: hidden; }
 
 .aboutus-item {
-  text-align: left;
-  padding-right: 125px;
-  padding-left: 0; }
+  text-align: center;
+  padding-right: 15px;
+  padding-left: 15px; }
   .aboutus-item .fa-stack {
-    position: absolute;
-    bottom: 50%;
+    position: relative;
+    bottom: unset;
     left: auto;
-    right: -125px;
-    -webkit-transform: translateY(50%);
-    transform: translateY(50%); }
+    right: unset;
+    -webkit-transform: unset;
+    transform: unset; }
     .aboutus-item .fa-stack .fa-stack-2x {
       color: #f00; }
     .aboutus-item .fa-stack .fa-stack-1x {
@@ -14335,15 +14448,26 @@ body {
     .aboutus-item .fa-stack:hover .fa-stack-1x {
       -webkit-animation: rotating 2s linear infinite;
       animation: rotating 2s linear infinite; }
-  .aboutus-item:nth-child(even) {
-    text-align: right;
-    padding-left: 125px;
-    padding-right: 0; }
-    .aboutus-item:nth-child(even) .fa-stack {
-      left: -125px;
-      right: auto; }
+  @media (min-width: 768px) {
+    .aboutus-item {
+      text-align: left;
+      padding-right: 125px;
+      padding-left: 0; }
+      .aboutus-item .fa-stack {
+        position: absolute;
+        bottom: 50%;
+        right: -125px;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%); }
+      .aboutus-item:nth-child(even) {
+        text-align: right;
+        padding-left: 125px;
+        padding-right: 0; }
+        .aboutus-item:nth-child(even) .fa-stack {
+          left: -125px;
+          right: auto; } }
 
-#offer {
+#partner {
   background-color: #000; }
 
 .offer-item {
@@ -14411,11 +14535,14 @@ body {
 
 .map {
   width: 100%;
-  height: 600px; }
+  height: 400px; }
   .map img {
     max-width: inherit !important; }
   .map h4 {
     text-decoration: none; }
+  @media (min-width: 768px) {
+    .map {
+      height: 600px; } }
 
 .contactform {
   background-color: #f6f6f6; }
@@ -14513,6 +14640,20 @@ footer {
 .animatein.speed-6 {
   -webkit-animation-delay: 3s;
   animation-delay: 3s; }
+
+#mobilemenu {
+  background-color: #f00;
+  text-align: center;
+  display: none; }
+  #mobilemenu ul {
+    list-style-type: none; }
+    #mobilemenu ul .nav-item .nav-link {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      font-weight: bold; }
+      #mobilemenu ul .nav-item .nav-link:hover, #mobilemenu ul .nav-item .nav-link.active {
+        text-decoration: underline; }
 
 .gfield .gfield_checkbox label {
   margin-left: 20px !important;

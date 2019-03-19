@@ -1,3 +1,7 @@
+html {
+	max-width: 100%;
+}
+
 body {
 	position: relative;
 }
@@ -16,7 +20,7 @@ body {
 }
 
 .header {
-	border-top: 10px solid $red;
+	border-top: none;
 	z-index: $zindex-fixed;
 	position: absolute;
 	left: 0;
@@ -24,12 +28,28 @@ body {
 	&.fixed-top {
 		position: fixed;
 	}
+	@include media-breakpoint-up(lg) {
+		border-top: 10px solid $red;
+	}
+}
+
+.hamburger {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	&:focus {
+		outline: none;
+	}
 }
 
 .alwaysmenu {
 	position: absolute;
 	left: 0;
 	right: 0;
+	background-color: $red;
+	@include media-breakpoint-up(lg) {
+		background-color: transparent;
+	}
 }
 
 #mainmenu-container {
@@ -79,6 +99,10 @@ body {
 		top: 0;
 		bottom: 0;
 		width: 22px;
+		display: none;
+		@include media-breakpoint-up(lg) {
+			display: block;
+		}
 	}
 	&:after {
 		content: "";
@@ -89,6 +113,10 @@ body {
 		top: 0;
 		bottom: 0;
 		width: 22px;
+		display: none;
+		@include media-breakpoint-up(lg) {
+			display: block;
+		}
 	}
 }
 
@@ -159,27 +187,39 @@ body {
 
 .teamcarousel {
 	.owl-next {
-		right: -90px;
+		right: 0;
 		padding-left: 22px;
 	}
-	
 	.owl-prev {
-		left: -90px;
+		left: 0;
 		padding-right: 22px;
+	}
+	@include media-breakpoint-up(lg) {
+		.owl-next {
+			right: -90px;
+		}
+		.owl-prev {
+			left: -90px;
+		}
 	}
 }
 
+.aboutus-container {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
 .aboutus-item {
-	text-align: left;
-	padding-right: 125px;
-	padding-left: 0;
+	text-align: center;
+	padding-right: 15px;
+	padding-left: 15px;
 	.fa-stack {
-		position: absolute;
-		bottom: 50%;
+		position: relative;
+		bottom: unset;
 		left: auto;
-		right: -125px;
-		-webkit-transform: translateY(50%);
-				transform: translateY(50%);
+		right: unset;
+		-webkit-transform: unset;
+		        transform: unset;
 		.fa-stack-2x {
 			color: $red;
 		}
@@ -193,18 +233,30 @@ body {
 			}
 		}
 	}
-	&:nth-child(even) {
-		text-align: right;
-		padding-left: 125px;
-		padding-right: 0;
+	@include media-breakpoint-up(md) {
+		text-align: left;
+		padding-right: 125px;
+		padding-left: 0;
 		.fa-stack {
-			left: -125px;
-			right: auto;
+			position: absolute;
+			bottom: 50%;
+			right: -125px;
+			-webkit-transform: translateY(50%);
+					transform: translateY(50%);
+		}
+		&:nth-child(even) {
+			text-align: right;
+			padding-left: 125px;
+			padding-right: 0;
+			.fa-stack {
+				left: -125px;
+				right: auto;
+			}
 		}
 	}
 }
 
-#offer {
+#partner {
 	background-color: $black;
 }
 
@@ -305,12 +357,15 @@ body {
 
 .map {
 	width: 100%;
-	height: 600px;
+	height: 400px;
 	img {
 		max-width: inherit !important;
 	}
 	h4 {
 		text-decoration: none;
+	}
+	@include media-breakpoint-up(md) {
+		height: 600px;
 	}
 }
 
@@ -417,6 +472,27 @@ footer {
 		&.speed-#{$i} {
 			-webkit-animation-delay: $i * .5s;
 			        animation-delay: $i * .5s;
+		}
+	}
+}
+
+#mobilemenu {
+	background-color: $red;
+	text-align: center;
+	display: none;
+	ul {
+		list-style-type: none;
+		.nav-item {
+			.nav-link {
+				color: $white;
+				text-transform: uppercase;
+				letter-spacing: .7px;
+				font-weight: bold;
+				&:hover,
+				&.active {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 }

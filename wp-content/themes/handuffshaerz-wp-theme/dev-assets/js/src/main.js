@@ -3,7 +3,7 @@
 
 	//Scrollspy aktivieren
 	$('body').scrollspy({
-		target: '#mainmenu-container',
+		target: '.mainmenu-scroll',
 		offset: 80
 	});
 
@@ -26,10 +26,15 @@
 	$('a[href^="#"]').on('click', function(e) {
 		if (this.hash !== "") {
 			stopDefault(e);
+			//Falls im mobilen Menü gecklickt wurde, muss das Menü wieder geschlossen werden
+			if($(this).hasClass('closemenu')) {
+				$('.hamburger').removeClass('is-active');
+				$('#mobilemenu').slideUp();
+			}
 			var hash = this.hash;
 			$('html, body').animate({
 				scrollTop: $(hash).offset().top - 100
-			}, 900, 'swing', function(){
+			}, 900, 'swing', function() {
 				window.location.hash = hash;
 				return false;
 			});
@@ -38,29 +43,39 @@
 
 	//Slider in der Home Sektion aktivieren
 	$('.homecarousel').owlCarousel({
-		items: 1,
-		loop: true,
-		nav: true,
-		dots: false,
-		autoplay: true,
-		autoplayHoverPause: true,
-		autoplayTimeout: 3000,
-		animateOut: 'slideOutDown',
-		animateIn: 'flipInX',
-		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
+		items : 1,
+		loop : true,
+		nav : true,
+		dots : false,
+		autoplay : true,
+		autoplayHoverPause : true,
+		autoplayTimeout : 3000,
+		animateOut : 'slideOutDown',
+		animateIn : 'flipInX',
+		navText : ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
 	});
 
 	//Team Slider aktivieren
 	$('.teamcarousel').owlCarousel({
-		items: 3,
-		loop: true,
-		nav: true,
-		dots: false,
-		autoplay: true,
-		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
-		margin: 30,
-		navText: ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>']
+		loop : true,
+		nav : true,
+		dots : false,
+		autoplay : true,
+		autoplayHoverPause : true,
+		autoplayTimeout : 5000,
+		margin : 30,
+		navText : ['<i class="fas fa-chevron-left fa-2x"></i>','<i class="fas fa-chevron-right fa-2x"></i>'],
+		responsive : {
+			0 : {
+				items : 1
+			},
+			768 : {
+				items : 2
+			},
+			992 : {
+				items : 3
+			}
+		}
 	});
 
 	//Google Map initialisieren und Markers laden
@@ -129,5 +144,11 @@
 
 	//Elemente beim herunterscrollen animiert einblenden
 	$('.animatein').AniView();
+
+	//Hamburger Menü Button Animation aktivieren und Menü einblenden
+	$('.hamburger').on('click', function() {
+		$(this).toggleClass('is-active');
+		$('#mobilemenu').slideToggle();
+	});
 
 })(jQuery);

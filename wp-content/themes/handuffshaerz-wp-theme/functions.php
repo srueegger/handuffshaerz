@@ -15,6 +15,7 @@ define( 'DIST_JS', THEME_URI . '/dist-assets/js' );
  * Include helpers
  ***************************************/
 require_once 'inc/gravityforms.php';
+require_once 'inc/disable-gutenberg.php';
 
 /***************************************
  * 		Theme Support and Options
@@ -26,6 +27,11 @@ add_theme_support( 'menus' );
 /***************************************
  * Custom Image Size
  ***************************************/
+add_image_size( 'fullwidth-xl', 1920, 1080, true );
+add_image_size( 'fullwidth-lg', 992, 661, true );
+add_image_size( 'fullwidth-md', 768, 512, true );
+add_image_size( 'fullwidth-xl', 576, 384, true );
+add_image_size( 'fullwidth-xl', 400, 267, true );
 
 /***************************************
  * Add Wordpress Menus
@@ -44,11 +50,11 @@ function huh_startup_scripts() {
 	//Google Maps
 	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQtwK65Jm6aNAuB5ep1JmwutTBT-pFKlM&language=de-CH&region=CH', null, null, true );
 	if (WP_DEBUG) {
-		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1' );
-		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1', true );
+		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.1' );
+		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.1', true );
 	} else {
-		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1' );
-		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1', true );
+		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.1' );
+		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.1', true );
 	}
 	$global_vars = array(
 		'ajaxurl' => admin_url('admin-ajax.php')

@@ -167,10 +167,10 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 			0 : {
 				items : 1
 			},
-			768 : {
+			769 : {
 				items : 2
 			},
-			992 : {
+			993 : {
 				items : 3
 			}
 		}

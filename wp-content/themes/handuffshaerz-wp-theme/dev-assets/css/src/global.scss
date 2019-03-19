@@ -191,6 +191,7 @@ body {
 }
 
 .teamcarousel {
+	overflow-x: hidden;
 	.owl-next {
 		right: 0;
 		padding-left: 22px;
@@ -200,6 +201,7 @@ body {
 		padding-right: 22px;
 	}
 	@include media-breakpoint-up(lg) {
+		overflow-x: visible;
 		.owl-next {
 			right: -90px;
 		}
@@ -437,6 +439,10 @@ footer {
 			margin-top: 15px;
 			li {
 				display: inline-block;
+				margin-right: 10px;
+				&:last-of-type {
+					margin-right: 0;
+				}
 				a {
 					background-color: $gray-500;
 					color: $white;

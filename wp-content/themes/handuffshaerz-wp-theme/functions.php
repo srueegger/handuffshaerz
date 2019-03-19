@@ -40,6 +40,11 @@ add_image_size( 'partnerlogo-lg', 420, 9999, false );
 add_image_size( 'partnerlogo-md', 660, 9999, false );
 add_image_size( 'partnerlogo-sm', 352, 9999, false );
 add_image_size( 'partnerlogo-xs', 258, 9999, false );
+add_image_size( 'teamfoto-xl', 350, 441, true );
+add_image_size( 'teamfoto-lg', 320, 416, true );
+add_image_size( 'teamfoto-md', 510, 643, true );
+add_image_size( 'teamfoto-sm', 545, 687, true );
+add_image_size( 'teamfoto-xs', 290, 365, true );
 
 /***************************************
  * Add Wordpress Menus
@@ -59,11 +64,11 @@ function huh_startup_scripts() {
 	//Google Maps
 	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM&language=de-CH&region=CH', null, null, true );
 	if (WP_DEBUG) {
-		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.1' );
-		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.1', true );
+		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.2' );
+		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.2', true );
 	} else {
-		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.1' );
-		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.1', true );
+		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.2' );
+		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.2', true );
 	}
 	$global_vars = array(
 		'ajaxurl' => admin_url('admin-ajax.php')

@@ -24,8 +24,8 @@
 
 	//Beim Klick auf Link im Menü mit jquery animiert scrollen
 	$('a[href^="#"]').on('click', function(e) {
+		stopDefault(e);
 		if (this.hash !== "") {
-			stopDefault(e);
 			//Falls im mobilen Menü gecklickt wurde, muss das Menü wieder geschlossen werden
 			if($(this).hasClass('closemenu')) {
 				$('.hamburger').removeClass('is-active');

@@ -510,3 +510,19 @@ footer {
 		}
 	}
 }
+
+.normalpage {
+	.container {
+		padding-top: 100px;
+		padding-bottom: 50px;
+		&:first-of-type {
+			background-color: $gray-100;
+		}
+	}
+}
+
+.footerlink {
+	&.active {
+		text-decoration: underline;
+	}
+}

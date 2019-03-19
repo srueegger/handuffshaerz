@@ -31,7 +31,11 @@
 							<ul class="list-inline">
 								<?php
 								foreach($menuitems as $menuitem):
-									echo '<li class="list-inline-item"><a href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
+									$active = '';
+									if($menuitem->object_id == get_the_ID()):
+										$active = ' active';
+									endif;
+									echo '<li class="list-inline-item"><a class="footerlink'.$active.'" href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
 								endforeach;
 								?>
 							</ul>

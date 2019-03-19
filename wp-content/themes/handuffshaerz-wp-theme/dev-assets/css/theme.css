@@ -14669,6 +14669,15 @@ footer {
       #mobilemenu ul .nav-item .nav-link:hover, #mobilemenu ul .nav-item .nav-link.active {
         text-decoration: underline; }
 
+.normalpage .container {
+  padding-top: 100px;
+  padding-bottom: 50px; }
+  .normalpage .container:first-of-type {
+    background-color: #f6f6f6; }
+
+.footerlink.active {
+  text-decoration: underline; }
+
 .gfield .gfield_checkbox label {
   margin-left: 20px !important;
   margin-top: 4px !important; }

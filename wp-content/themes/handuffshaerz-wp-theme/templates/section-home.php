@@ -1,56 +1,36 @@
 <section class="section" id="home">
-	<div class="owl-carousel owl-theme homecarousel">
-		<div>
-			<picture>
-				<source srcset="https://via.placeholder.com/1920x1080/0000FF" media="(min-width: 1200px)">
-				<source srcset="https://via.placeholder.com/992x661/0000FF" media="(min-width: 992px)">
-				<source srcset="https://via.placeholder.com/768x512/0000FF" media="(min-width: 768px)">
-				<source srcset="https://via.placeholder.com/576x384/0000FF" media="(min-width: 576px)">
-				<img src="https://via.placeholder.com/400x267/0000FF" alt="">
-				<figcaption>
-					<h1 class="text-white">Cooler Titel</h1>
-					<p class="text-white">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
-				</figcaption>
-			</picture>
-		</div>
-		<div>
-			<picture>
-				<source srcset="https://via.placeholder.com/1920x1080/FF0000" media="(min-width: 1200px)">
-				<source srcset="https://via.placeholder.com/992x661/FF0000" media="(min-width: 992px)">
-				<source srcset="https://via.placeholder.com/768x512/FF0000" media="(min-width: 768px)">
-				<source srcset="https://via.placeholder.com/576x384/FF0000" media="(min-width: 576px)">
-				<img src="https://via.placeholder.com/400x267/FF0000" alt="">
-				<figcaption>
-					<h1 class="text-white">Cooler Titel</h1>
-					<p class="text-white">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
-				</figcaption>
-			</picture>
-		</div>
-		<div>
-			<picture>
-				<source srcset="https://via.placeholder.com/1920x1080/FFFFF00" media="(min-width: 1200px)">
-				<source srcset="https://via.placeholder.com/992x661/FFFFF00" media="(min-width: 992px)">
-				<source srcset="https://via.placeholder.com/768x512/FFFFF00" media="(min-width: 768px)">
-				<source srcset="https://via.placeholder.com/576x384/FFFFF00" media="(min-width: 576px)">
-				<img src="https://via.placeholder.com/400x267/FFFFF00" alt="">
-				<figcaption>
-					<h1 class="text-white">Cooler Titel</h1>
-					<p class="text-white">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
-				</figcaption>
-			</picture>
-		</div>
-		<div>
-			<picture>
-				<source srcset="https://via.placeholder.com/1920x1080/000000" media="(min-width: 1200px)">
-				<source srcset="https://via.placeholder.com/992x661/000000" media="(min-width: 992px)">
-				<source srcset="https://via.placeholder.com/768x512/000000" media="(min-width: 768px)">
-				<source srcset="https://via.placeholder.com/576x384/000000" media="(min-width: 576px)">
-				<img src="https://via.placeholder.com/400x267/000000" alt="">
-				<figcaption>
-					<h1 class="text-white">Cooler Titel</h1>
-					<p class="text-white">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
-				</figcaption>
-			</picture>
-		</div>
-	</div>
+	<?php
+	$slides = get_field('front_s1_slider');
+	if(!empty($slides)):
+		echo '<div class="owl-carousel owl-theme homecarousel">';
+		foreach($slides as $slide):
+			$title = $slide['title'];
+			$caption = $slide['caption'];
+			?>
+			<div>
+				<picture>
+					<source srcset="<?php echo $slide['sizes']['fullwidth-xl']; ?>" media="(min-width: 1200px)">
+					<source srcset="<?php echo $slide['sizes']['fullwidth-lg']; ?>" media="(min-width: 992px)">
+					<source srcset="<?php echo $slide['sizes']['fullwidth-md']; ?>" media="(min-width: 768px)">
+					<source srcset="<?php echo $slide['sizes']['fullwidth-sm']; ?>" media="(min-width: 576px)">
+					<img src="<?php echo $slide['sizes']['fullwidth-xs']; ?>" alt="<?php echo $slide['alt']; ?>">
+					<?php if($title != '' || $caption != ''): ?>
+						<figcaption>
+							<?php if($title != ''): ?>
+								<h1 class="text-white"><?php echo $title ?></h1>
+								<?php
+							endif;
+							if($caption != ''):
+								?>
+								<p class="text-white"><?php echo nl2br($caption); ?></p>
+							<?php endif; ?>
+						</figcaption>
+					<?php endif; ?>
+				</picture>
+			</div>
+			<?php
+		endforeach;
+		echo '</div>';
+	endif;
+	?>
 </section>

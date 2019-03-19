@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center mb-5">
-				<h2>Über uns</h2>
+				<h2><?php the_field('front_s2_title'); ?></h2>
 			</div>
 			<div class="row mb-5 aboutus-container">
 				<div class="col-12 col-md-6 aboutus-item">

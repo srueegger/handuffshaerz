@@ -35,26 +35,11 @@
 			<div class="header">
 				<div class="container alwaysmenu">
 					<div id="mainmenu-container" class="mainmenu-scroll">
-						<ul class="nav nav-tabs justify-content-center d-none d-lg-flex" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link" href="#home">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#aboutus">Über uns</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#partner">Partner</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#subscribe">Kurs Anmeldung</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#team">Team</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#contact">Kontakt</a>
-							</li>
-						</ul>
+						<?php
+						$menulocations = get_nav_menu_locations();
+						$menuitems = wp_get_nav_menu_items($menulocations['main-menu']);
+						huh_print_menu_items($menuitems, 'nav nav-tabs justify-content-center d-none d-lg-flex');
+						?>
 						<button class="hamburger hamburger--stand d-inline-block d-lg-none" type="button">
 							<span class="hamburger-box">
 								<span class="hamburger-inner"></span>
@@ -62,26 +47,7 @@
 						</button>
 					</div>
 					<div id="mobilemenu" class="mainmenu-scroll">
-						<ul role="tablist">
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#home">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#aboutus">Über uns</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#partner">Partner</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#subscribe">Kurs Anmeldung</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#team">Team</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link closemenu" href="#contact">Kontakt</a>
-							</li>
-						</ul>
+						<?php huh_print_menu_items($menuitems); ?>
 					</div>
 				</div>
 			</div>

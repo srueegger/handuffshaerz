@@ -16,6 +16,7 @@ define( 'DIST_JS', THEME_URI . '/dist-assets/js' );
  ***************************************/
 require_once 'inc/gravityforms.php';
 require_once 'inc/disable-gutenberg.php';
+require_once 'inc/acf.php';
 
 /***************************************
  * 		Theme Support and Options
@@ -30,8 +31,8 @@ add_theme_support( 'menus' );
 add_image_size( 'fullwidth-xl', 1920, 1080, true );
 add_image_size( 'fullwidth-lg', 992, 661, true );
 add_image_size( 'fullwidth-md', 768, 512, true );
-add_image_size( 'fullwidth-xl', 576, 384, true );
-add_image_size( 'fullwidth-xl', 400, 267, true );
+add_image_size( 'fullwidth-sm', 576, 384, true );
+add_image_size( 'fullwidth-xs', 400, 267, true );
 
 /***************************************
  * Add Wordpress Menus
@@ -69,8 +70,8 @@ add_action( "wp_enqueue_scripts", "huh_startup_scripts" );
  ***************************************/
 function huh_acf_init() {
 	 $args = array(
-		'page_title' => 'Einstellungen für die Compresso Inventarliste',
-		'menu_title' => 'Inventarliste',
+		'page_title' => 'Einstellungen für die Webseite',
+		'menu_title' => 'Theme Einstellungen',
 		'menu_slug' => 'huh-theme-settings',
 		'parent_slug' => 'options-general.php',
 	);
@@ -78,7 +79,7 @@ function huh_acf_init() {
 	//Google Maps initialisieren
 	acf_update_setting('google_api_key', 'AIzaSyB8JdkWhYxFGfvyQAwfrtYAHgjpcylRejs');
 }
-//add_action( 'acf/init', 'huh_acf_init' );
+add_action( 'acf/init', 'huh_acf_init' );
 
 /***************************************
  * Remove Menus from Backend
@@ -88,3 +89,29 @@ function huh_remove_menus() {
 	remove_menu_page( 'edit-comments.php' );
 }
 add_action( 'admin_menu', 'huh_remove_menus' );
+
+/***************************************
+ * 	Add Admin CSS und JS File
+ ***************************************/
+function huh_admin_style_scripts() {
+	wp_enqueue_style( 'huh-admin-css', DIST_CSS.'/admin/huh-admin-css.css', null, '1' );
+}
+add_action('admin_enqueue_scripts', 'huh_admin_style_scripts');
+
+/***************************************
+ * 	Print Menu item
+ ***************************************/
+function huh_print_menu_items($menuitems, $class = '') {
+	if($class != ''):
+		$printclass = ' class="'.$class.'"';
+	else:
+		$printclass = '';
+	endif;
+	if(!empty($menuitems)):
+		echo '<ul'.$printclass.' role="tablist">';
+		foreach($menuitems as $menuitem):
+			echo '<li class="nav-item"><a class="nav-link" href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
+		endforeach;
+		echo '</ul>';
+	endif;
+}

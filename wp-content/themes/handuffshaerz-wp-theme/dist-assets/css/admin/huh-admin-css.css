@@ -1,0 +1,4 @@
+.acf-field[data-name="description"],
+.setting[data-setting="description"] {
+	display: none !important;
+}

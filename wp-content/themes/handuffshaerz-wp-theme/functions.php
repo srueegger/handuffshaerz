@@ -46,6 +46,7 @@ add_image_size( 'partnerlogo-xs', 258, 9999, false );
  ***************************************/
 function register_huh_menu() {
 	register_nav_menu( 'main-menu', 'Hauptmenü' );
+	register_nav_menu( 'footer-menu', 'Footermenü' );
 }
 add_action( 'after_setup_theme', 'register_huh_menu' );
 
@@ -56,7 +57,7 @@ function huh_startup_scripts() {
 	//Google Fonts
 	wp_enqueue_style( 'huh-google-font', 'https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Montserrat:400,700' );
 	//Google Maps
-	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQtwK65Jm6aNAuB5ep1JmwutTBT-pFKlM&language=de-CH&region=CH', null, null, true );
+	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM&language=de-CH&region=CH', null, null, true );
 	if (WP_DEBUG) {
 		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.1' );
 		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.1', true );
@@ -84,7 +85,7 @@ function huh_acf_init() {
 	);
 	acf_add_options_sub_page($args);
 	//Google Maps initialisieren
-	acf_update_setting('google_api_key', 'AIzaSyB8JdkWhYxFGfvyQAwfrtYAHgjpcylRejs');
+	acf_update_setting('google_api_key', 'AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM');
 }
 add_action( 'acf/init', 'huh_acf_init' );
 
@@ -122,3 +123,18 @@ function huh_print_menu_items($menuitems, $class = '') {
 		echo '</ul>';
 	endif;
 }
+
+/***************************************
+ * 	ACF Field mit Formularauswahlmöglichkeiten füllen
+ ***************************************/
+function huh_load_forms_to_acf_selectmenu( $field ) {
+	$field['choices'] = array();
+	$forms = GFAPI::get_forms();
+	if(!empty($forms)):
+		foreach($forms as $form):
+			$field['choices'][$form['id']] = $form['title'];
+		endforeach;
+	endif;
+	return $field;
+}
+add_filter('acf/load_field/name=front_s6_form_id', 'huh_load_forms_to_acf_selectmenu');

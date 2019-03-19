@@ -20,17 +20,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-12 text-right">
-						<ul class="linst-inline">
-							<li class="list-inline-item"><a href="#">Impressum</a></li>
-							<li class="list-inline-item"><a href="#">Datenschutz</a></li>
-							<li class="list-inline-item"><a href="#">etc</a></li>
-						</ul>
+			<?php
+			$menulocations = get_nav_menu_locations();
+			$menuitems = wp_get_nav_menu_items($menulocations['footer-menu']);
+			if(!empty($menuitems)):
+				?>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12 text-right">
+							<ul class="list-inline">
+								<?php
+								foreach($menuitems as $menuitem):
+									echo '<li class="list-inline-item"><a href="'.$menuitem->url.'">'.$menuitem->title.'</a></li>';
+								endforeach;
+								?>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+				<?php
+			endif;
+			?>
 		</div>
 		<?php wp_footer(); ?>
 	</body>

@@ -107,7 +107,7 @@ add_action( 'admin_menu', 'huh_remove_menus' );
  * 	Add Admin CSS und JS File
  ***************************************/
 function huh_admin_style_scripts() {
-	wp_enqueue_style( 'huh-admin-css', DIST_CSS.'/admin/huh-admin-css.css', null, '1' );
+	wp_enqueue_style( 'huh-admin-css', DIST_CSS.'/admin/huh-admin-css.css', null, '1.1' );
 }
 add_action('admin_enqueue_scripts', 'huh_admin_style_scripts');
 

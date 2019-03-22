@@ -281,6 +281,13 @@ body {
 		}
 		h3 {
 			min-height: 66px;
+			.subtitle {
+				font-size: 1.2rem;
+				font-weight: normal;
+				@include media-breakpoint-up(md) {
+					font-size: 1.5rem;
+				}
+			}
 		}
 	}
 	&:hover {
@@ -545,4 +552,43 @@ footer {
 			}
 		}
 	}
+}
+
+.cc-btn {
+	&:hover {
+		text-decoration: none;
+		background-color: $white !important;
+		color: $red !important;
+	}
+}
+
+#scrolltotop {
+	position: fixed;
+	right: 25px;
+	bottom: 50px;
+	width: 64px;
+	height: 64px;
+	z-index: $zindex-fixed;
+	background-color: $red;
+	border: 2px solid $red;
+	text-align: center;
+	@extend %animation;
+	display: none;
+	i {
+		color: $white;
+		line-height: 64px;
+		font-size: 2.9rem;
+		@extend %animation;
+	}
+	&:hover {
+		cursor: pointer;
+		background-color: $white;
+		i {
+			color: $red;
+		}
+	}
+}
+
+#coursedetail {
+	display: none;
 }

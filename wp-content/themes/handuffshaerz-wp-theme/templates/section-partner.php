@@ -21,6 +21,10 @@
 				the_row();
 				$image = get_sub_field('logo');
 				$btn = get_sub_field('btn');
+				$title_addon = '';
+				if(get_sub_field('subtitle') != ''):
+					$title_addon = ' - <span class="subtitle">'.get_sub_field('subtitle').'</span>';
+				endif;
 				?>
 				<div class="col-12 <?php echo $col_lg; ?> offer-item mb-3">
 					<div data-av-animation="flipInY" class="inner animatein spped-<?php echo get_row_index(); ?>">
@@ -31,7 +35,7 @@
 							<source srcset="<?php echo $image['sizes']['partnerlogo-sm']; ?>" media="(min-width: 576px)">
 							<img class="img-fluid" src="<?php echo $image['sizes']['partnerlogo-xs']; ?>" alt="<?php echo $image['alt']; ?>">
 						</picture>
-						<h3 class="my-4"><?php the_sub_field('title'); ?></h3>
+						<h3 class="my-4"><?php the_sub_field('title'); ?><?php echo $title_addon; ?></h3>
 						<?php the_sub_field('txt'); ?>
 						<a href="<?php echo $btn['url']; ?>" target="<?php echo $btn['target']; ?>" class="btn w-100"><?php echo $btn['title']; ?></a>
 					</div>

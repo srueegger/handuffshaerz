@@ -46,6 +46,7 @@
 			endif;
 			?>
 		</div>
+		<div id="scrolltotop"><i class="fal fa-arrow-alt-to-top"></i></div>
 		<?php wp_footer(); ?>
 	</body>
 </html>

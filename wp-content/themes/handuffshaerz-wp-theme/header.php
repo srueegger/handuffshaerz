@@ -3,7 +3,33 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<?php wp_head(); ?>
+		<?php
+		wp_head();
+		?>
+		<script type="text/javascript">
+			window.addEventListener("load", function(){
+				window.cookieconsent.initialise({
+					"palette": {
+						"popup": {
+						"background": "#f00000",
+						"text": "#ffffff"
+						},
+						"button": {
+						"background": "#000000",
+						"text": "#ffffff"
+						}
+					},
+					"theme": "edgeless",
+					"position": "bottom-left",
+					"content": {
+						"message": "<?php the_field('cookiebanner_txt', 'option'); ?>",
+						"dismiss": "<?php the_field('cookiebanner_btn_txt', 'option'); ?>",
+						"link": "<?php the_field('cookiebanner_link_text', 'option'); ?>",
+						"href": "<?php echo get_permalink( get_option('wp_page_for_privacy_policy') ); ?>"
+					}
+				});
+			});
+		</script>
 	</head>
 	<body <?php body_class(); ?>>
 		<header>

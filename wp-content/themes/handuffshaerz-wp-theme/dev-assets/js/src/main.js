@@ -8,16 +8,19 @@
 	});
 
 	//Header verändern beim scrollen
+	//Scroll To Top Button einblenden
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
 			$('.header').addClass('fixed-top');
+			$('#scrolltotop').show();
 			$('[data-spy="scroll"]').each(function () {
-				var $spy = $(this).scrollspy('refresh')
+				$('body').scrollspy('refresh');
 			})
 		} else {
 			$('.header').removeClass('fixed-top');
+			$('#scrolltotop').hide();
 			$('[data-spy="scroll"]').each(function () {
-				var $spy = $(this).scrollspy('refresh')
+				$('body').scrollspy('refresh');
 			})
 		}
 	});
@@ -151,11 +154,38 @@
 		$('#mobilemenu').slideToggle();
 	});
 
-	//Partner Boxen gleich hoch machen
-	$.when( AniView() ).done(function() {
-		$('.offer-item').matchHeight({
-			property : 'min-height'
+	//Ganz nach oben scrollen nach klick auf Scroll to Top Button
+	$('#scrolltotop').on('click', function() {
+		$("html, body").animate({
+			scrollTop: 0
+		}, "slow");
+	});
+
+	//Aktionen ausführen wenn auf den bei der Kursübersicht geklickt wird
+	$('.showcoursesubscribe').on('click', function() {
+		var btn = $(this);
+		var btnoldvalue = btn.text();
+		//Ladeanimation im Button anzeigen
+		btn.html('<i class="fas fa-circle-notch fa-spin fa-lg"></i> Kurs wird geladen...');
+		var coursedetailcontainer = $('#coursedetail');
+		coursedetailcontainer.slideUp();
+		var course_id = btn.data('courseid');
+		$.ajax({
+			type: 'post',
+			url: global_vars.ajaxurl,
+			data: 'action=huh_ajax_get_course_info&course_id='+course_id,
+			success: function(response) {
+				coursedetailcontainer.html(response);
+				coursedetailcontainer.slideDown();
+				//Zum neuen Container scrollen
+				$('html, body').animate({
+					scrollTop: coursedetailcontainer.offset().top - 100,
+				}, 900, 'linear', function() {
+					btn.text(btnoldvalue);
+				});
+			}
 		});
 	});
+
 
 })(jQuery);

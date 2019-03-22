@@ -14112,7 +14112,7 @@ readers do not read off random characters that represent icons */
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 #mainmenu-container .nav .nav-item .nav-link:before, .owl-carousel .owl-prev,
-.owl-carousel .owl-next, .offer-item .inner, .subscribe-item .inner .item-meta .meta .inner-meta .meta-icon-container i, .subscribe-item .inner .item-meta .meta .inner-meta .meta-txt, .team-item, .team-item .inner ul li a {
+.owl-carousel .owl-next, .offer-item .inner, .subscribe-item .inner .item-meta .meta .inner-meta .meta-icon-container i, .subscribe-item .inner .item-meta .meta .inner-meta .meta-txt, .team-item, .team-item .inner ul li a, #scrolltotop, #scrolltotop i {
   -webkit-transition: all .5s ease 0s;
   transition: all .5s ease 0s; }
 
@@ -14367,6 +14367,12 @@ body {
       color: #fff; }
     .offer-item .inner h3 {
       min-height: 66px; }
+      .offer-item .inner h3 .subtitle {
+        font-size: 1.2rem;
+        font-weight: normal; }
+        @media (min-width: 768px) {
+          .offer-item .inner h3 .subtitle {
+            font-size: 1.5rem; } }
   .offer-item:hover .inner {
     background-color: #f00; }
     .offer-item:hover .inner h3,
@@ -14564,6 +14570,35 @@ footer {
   color: #fff;
   margin-left: 8px; }
 .list-inline-item.footer:last-of-type:after {
+  display: none; }
+
+.cc-btn:hover {
+  text-decoration: none;
+  background-color: #fff !important;
+  color: #f00 !important; }
+
+#scrolltotop {
+  position: fixed;
+  right: 25px;
+  bottom: 50px;
+  width: 64px;
+  height: 64px;
+  z-index: 1030;
+  background-color: #f00;
+  border: 2px solid #f00;
+  text-align: center;
+  display: none; }
+  #scrolltotop i {
+    color: #fff;
+    line-height: 64px;
+    font-size: 2.9rem; }
+  #scrolltotop:hover {
+    cursor: pointer;
+    background-color: #fff; }
+    #scrolltotop:hover i {
+      color: #f00; }
+
+#coursedetail {
   display: none; }
 
 .gfield .gfield_checkbox label {

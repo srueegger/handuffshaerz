@@ -75,10 +75,10 @@ function huh_startup_scripts() {
 	wp_enqueue_script( 'huh-cookieconsent-script', DIST_JS . '/cookieconsent.min.js', null, '3.1.0', false );
 	wp_enqueue_style( 'huh-cookieconsent-style', DIST_CSS . '/cookieconsent.min.css', null, '3.1.0' );
 	if (WP_DEBUG) {
-		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.6' );
+		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.7' );
 		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.5', true );
 	} else {
-		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.6' );
+		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.7' );
 		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.5', true );
 	}
 	$global_vars = array(
@@ -103,7 +103,16 @@ function huh_acf_init() {
 	//Google Maps initialisieren
 	acf_update_setting('google_api_key', 'AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM');
 }
-add_action( 'acf/init', 'huh_acf_init' );
+//add_action( 'acf/init', 'huh_acf_init' );
+$args = array(
+	'page_title' => 'Einstellungen für die Webseite',
+	'menu_title' => 'Theme Einstellungen',
+	'menu_slug' => 'huh-theme-settings',
+	'parent_slug' => 'options-general.php',
+);
+acf_add_options_sub_page($args);
+//Google Maps initialisieren
+acf_update_setting('google_api_key', 'AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM');
 
 /***************************************
  * Remove Menus from Backend
@@ -158,3 +167,4 @@ function huh_load_forms_to_acf_selectmenu( $field ) {
 	return $field;
 }
 add_filter('acf/load_field/name=front_s6_form_id', 'huh_load_forms_to_acf_selectmenu');
+add_filter('acf/load_field/name=setting_course_subscribe_form_id', 'huh_load_forms_to_acf_selectmenu');

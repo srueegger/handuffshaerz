@@ -98,7 +98,7 @@ function huh_ajax_get_course_info() {
 				echo '</ul>';
 			endif;
 			?>
-			<p><button type="button" class="btn btn-outline-primary w-100">Hier anmelden!</button></p>
+			<p><a href="<?php echo get_the_permalink($course_id); ?>" class="btn btn-primary w-100">Hier anmelden!</a></p>
 		</div>
 	</div>
 	<?php

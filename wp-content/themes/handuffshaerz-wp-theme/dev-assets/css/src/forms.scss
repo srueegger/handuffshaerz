@@ -31,3 +31,28 @@
 		@extend .text-danger;
 	}
 }
+
+.gf_progressbar {
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	        box-shadow: none !important;
+	background-color: transparent !important;
+}
+
+.gform_next_button {
+	position: absolute;
+	right: 20px;
+	@extend .btn;
+	@extend .btn-outline-dark;
+}
+
+.gform_previous_button {
+	@extend .btn;
+	@extend .btn-outline-dark;
+}
+
+.ginput_container_date {
+	.datepicker {
+		width: 100% !important;
+	}
+}

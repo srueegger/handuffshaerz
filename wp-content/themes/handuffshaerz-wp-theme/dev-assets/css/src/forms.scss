@@ -48,6 +48,20 @@ input {
 	-webkit-box-shadow: none !important;
 	        box-shadow: none !important;
 	background-color: transparent !important;
+	.gf_progressbar_percentage {
+		@extend .progress-bar;
+		@extend .progress-bar-striped;
+		@extend .progress-bar-animated;
+		&.percentbar_33 {
+			background-color: $red !important;
+		}
+		&.percentbar_66 {
+			background-color: $orange !important;
+		}
+		&.percentbar_100 {
+			background-color: $green !important;
+		}
+	}
 }
 
 .gform_next_button {

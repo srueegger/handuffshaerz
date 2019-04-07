@@ -169,3 +169,12 @@ function huh_load_forms_to_acf_selectmenu( $field ) {
 }
 add_filter('acf/load_field/name=front_s6_form_id', 'huh_load_forms_to_acf_selectmenu');
 add_filter('acf/load_field/name=setting_course_subscribe_form_id', 'huh_load_forms_to_acf_selectmenu');
+
+/***************************************
+ * 	Anzahl Beiträge in der Userliste entfernen
+ ***************************************/
+function huh_remove_posts_userlist( $columns ) {
+	unset( $columns['posts'] );
+	return $columns;
+}
+add_filter( 'manage_users_columns', 'huh_remove_posts_userlist' );

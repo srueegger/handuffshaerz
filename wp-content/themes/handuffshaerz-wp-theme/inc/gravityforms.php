@@ -79,17 +79,28 @@ function huh_verify_minimum_age($validation_result){
 	if (strtotime(date('Y-m-d')) - strtotime(date('Y') . substr($dob, 4, 6)) < 0):
 		$age--;
 	endif;
-    if( $age < $minimum_age ):
-        $validation_result['is_valid'] = false;
-        foreach($form['fields'] as &$field):
-            if($field['id'] == '13'):
-                $field['failed_validation'] = true;
-                $field['validation_message'] = 'Du musst mindestens 14 Jahre alt sein.';
-                break;
+	if( $age < $minimum_age ):
+		$validation_result['is_valid'] = false;
+		foreach($form['fields'] as &$field):
+			if($field['id'] == '13'):
+				$field['failed_validation'] = true;
+				$field['validation_message'] = 'Du musst mindestens 14 Jahre alt sein.';
+				break;
 			endif;
 		endforeach;
-    endif;
-    $validation_result['form'] = $form;
-    return $validation_result;
+	endif;
+	$validation_result['form'] = $form;
+	return $validation_result;
 }
 add_filter('gform_validation_2', 'huh_verify_minimum_age');
+
+/***************************************
+ * Gravityforms Datepicker Sprache auf Deutsch
+ ***************************************/
+add_action( 'gform_enqueue_scripts', 'huh_add_datepicker_regional', 11 );
+function huh_add_datepicker_regional() {
+	if ( wp_script_is( 'gform_datepicker_init' ) ):
+		wp_enqueue_script( 'datepicker-regional', DIST_JS . '/datepicker-de.js', array( 'gform_datepicker_init' ), false, true );
+		remove_action( 'wp_enqueue_scripts', 'wp_localize_jquery_ui_datepicker', 1000 );
+	endif;
+}

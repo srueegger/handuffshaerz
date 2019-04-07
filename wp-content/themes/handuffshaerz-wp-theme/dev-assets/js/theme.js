@@ -288,5 +288,4 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 		});
 	});
 
-
 })(jQuery);

@@ -67,3 +67,29 @@ add_filter( 'gform_pre_render_'.get_field('setting_course_subscribe_form_id', 'o
 add_filter( 'gform_pre_validation_'.get_field('setting_course_subscribe_form_id', 'option'), 'huh_select_date_options_in_order_form' );
 add_filter( 'gform_pre_submission_filter_'.get_field('setting_course_subscribe_form_id', 'option'), 'huh_select_date_options_in_order_form' );
 add_filter( 'gform_admin_pre_render_'.get_field('setting_course_subscribe_form_id', 'option'), 'huh_select_date_options_in_order_form' );
+
+/***************************************
+ * Bestellformular Alter prüfen
+ ***************************************/
+function huh_verify_minimum_age($validation_result){
+	$form = $validation_result['form'];
+	$dob = rgpost('input_13');
+	$minimum_age = 14;
+    $age = date('Y') - substr($dob, 0, 4);
+	if (strtotime(date('Y-m-d')) - strtotime(date('Y') . substr($dob, 4, 6)) < 0):
+		$age--;
+	endif;
+    if( $age < $minimum_age ):
+        $validation_result['is_valid'] = false;
+        foreach($form['fields'] as &$field):
+            if($field['id'] == '13'):
+                $field['failed_validation'] = true;
+                $field['validation_message'] = 'Du musst mindestens 14 Jahre alt sein.';
+                break;
+			endif;
+		endforeach;
+    endif;
+    $validation_result['form'] = $form;
+    return $validation_result;
+}
+add_filter('gform_validation_2', 'huh_verify_minimum_age');

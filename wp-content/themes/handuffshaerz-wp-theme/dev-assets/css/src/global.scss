@@ -236,12 +236,6 @@ body {
 		.fa-stack-1x {
 			color: $white;
 		}
-		&:hover {
-			.fa-stack-1x {
-				-webkit-animation: rotating 2s linear infinite;
-				        animation: rotating 2s linear infinite;
-			}
-		}
 	}
 	@include media-breakpoint-up(md) {
 		text-align: left;

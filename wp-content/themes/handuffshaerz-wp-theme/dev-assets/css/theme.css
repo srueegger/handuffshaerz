@@ -7802,6 +7802,24 @@ body {
     -webkit-animation-duration: calc( 1s * 0.75 );
     animation-duration: calc( 1s * 0.75 ); }
 
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1); }
+  100% {
+    -webkit-transform: scale(1); } }
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.1); }
+  100% {
+    transform: scale(1); } }
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse; }
+
 @-webkit-keyframes bounceInLeft {
   0% {
     opacity: 0;
@@ -14145,20 +14163,6 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
 
-@-webkit-keyframes rotating {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-@keyframes rotating {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
 #mainmenu-container .nav .nav-item .nav-link:before, .owl-carousel .owl-prev,
 .owl-carousel .owl-next, .offer-item .inner, .subscribe-item .inner .item-meta .meta .inner-meta .meta-icon-container i, .subscribe-item .inner .item-meta .meta .inner-meta .meta-txt, .team-item, .team-item .inner ul li a, #scrolltotop, #scrolltotop i {
   -webkit-transition: all .5s ease 0s;
@@ -14381,9 +14385,6 @@ body {
       color: #f00; }
     .aboutus-item .fa-stack .fa-stack-1x {
       color: #fff; }
-    .aboutus-item .fa-stack:hover .fa-stack-1x {
-      -webkit-animation: rotating 2s linear infinite;
-      animation: rotating 2s linear infinite; }
   @media (min-width: 768px) {
     .aboutus-item {
       text-align: left;

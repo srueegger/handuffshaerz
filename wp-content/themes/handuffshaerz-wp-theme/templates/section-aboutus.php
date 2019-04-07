@@ -20,7 +20,7 @@
 					<div data-av-animation="<?php echo $animation; ?>" class="animatein speed-<?php echo get_row_index(); ?>">
 						<span class="fa-stack fa-3x">
 							<i class="fas fa-heart fa-stack-2x"></i>
-							<i class="<?php the_sub_field('icon'); ?> fa-stack-1x fa-inverse"></i>
+							<i class="<?php the_sub_field('icon'); ?> fa-stack-1x fa-inverse animated infinite pulse"></i>
 						</span>
 						<h3 class="mb-4"><?php the_sub_field('title'); ?></h3>
 						<?php the_sub_field('txt'); ?>

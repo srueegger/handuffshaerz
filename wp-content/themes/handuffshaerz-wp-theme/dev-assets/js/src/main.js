@@ -113,6 +113,8 @@
 			google.maps.event.addListener(marker, 'click', function() {
 				infowindow.open( map, marker );
 			});
+			//Infowindow bei Seitenladen direkt öffnen
+			infowindow.open( map, marker);
 		}
 	}
 

@@ -14653,6 +14653,15 @@ footer {
 #coursedetail {
   display: none; }
 
+input {
+  -webkit-transition: background-color 2s ease-out !important;
+  transition: background-color 2s ease-out !important; }
+  input:focus {
+    outline: none !important;
+    background-color: rgba(240, 0, 0, 0.3) !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; }
+
 .gfield .gfield_checkbox label {
   margin-left: 20px !important;
   margin-top: 4px !important; }

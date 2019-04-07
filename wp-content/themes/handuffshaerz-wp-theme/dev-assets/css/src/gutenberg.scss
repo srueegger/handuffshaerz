@@ -1,0 +1,4 @@
+.wp-block-table {
+	@extend .table;
+	@extend .table-striped;
+}

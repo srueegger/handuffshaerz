@@ -1213,19 +1213,20 @@ pre {
 
   .offset-xl-11 {
     margin-left: 91.6666666667%; } }
-.table {
+.table, .wp-block-table {
   width: 100%;
   margin-bottom: 1rem;
   color: #212529; }
-  .table th,
-  .table td {
+  .table th, .wp-block-table th,
+  .table td,
+  .wp-block-table td {
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6; }
-  .table thead th {
+  .table thead th, .wp-block-table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6; }
-  .table tbody + tbody {
+  .table tbody + tbody, .wp-block-table tbody + tbody {
     border-top: 2px solid #dee2e6; }
 
 .table-sm th,
@@ -1247,7 +1248,7 @@ pre {
 .table-borderless tbody + tbody {
   border: 0; }
 
-.table-striped tbody tr:nth-of-type(odd) {
+.table-striped tbody tr:nth-of-type(odd), .wp-block-table tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05); }
 
 .table-hover tbody tr:hover {
@@ -1393,11 +1394,11 @@ pre {
   .table-hover .table-active:hover > th {
     background-color: #edb100; }
 
-.table .thead-dark th {
+.table .thead-dark th, .wp-block-table .thead-dark th {
   color: #fff;
   background-color: #343a40;
   border-color: #454d55; }
-.table .thead-light th {
+.table .thead-light th, .wp-block-table .thead-light th {
   color: #495057;
   background-color: #e1e1e1;
   border-color: #dee2e6; }
@@ -1411,7 +1412,7 @@ pre {
     border-color: #454d55; }
   .table-dark.table-bordered {
     border: 0; }
-  .table-dark.table-striped tbody tr:nth-of-type(odd) {
+  .table-dark.table-striped tbody tr:nth-of-type(odd), .table-dark.wp-block-table tbody tr:nth-of-type(odd) {
     background-color: rgba(255, 255, 255, 0.05); }
   .table-dark.table-hover tbody tr:hover {
     color: #fff;
@@ -14183,8 +14184,6 @@ h6,
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
   letter-spacing: 1.3px;
-  -webkit-text-decoration-style: wavy;
-  text-decoration-style: wavy;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   -webkit-text-decoration-color: #f00;
@@ -14454,7 +14453,8 @@ body {
       font-size: .75rem;
       letter-spacing: .24px;
       vertical-align: middle;
-      margin-right: 10px; }
+      margin-right: 10px;
+      margin-bottom: .75rem; }
       .subscribe-item .inner .item-meta .meta .inner-meta {
         border: 1px solid #e1e1e1;
         padding-top: 8px;

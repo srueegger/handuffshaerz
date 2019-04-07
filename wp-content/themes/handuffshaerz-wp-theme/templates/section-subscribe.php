@@ -15,12 +15,17 @@
 		);
 		$kurse = get_posts($args);
 		if(!empty($kurse)):
+			$count_courses = count($kurse);
 			echo '<div class="row justify-content-center">';
 			$post_class = array(
 				'col-12',
-				'col-md-6',
 				'subscribe-item'
 			);
+			if($count_courses > 2):
+				array_push($post_class, 'col-md-4');
+			else:
+				array_push($post_class, 'col-md-6');
+			endif;
 			global $post;
 			foreach($kurse as $post):
 				setup_postdata( $post );

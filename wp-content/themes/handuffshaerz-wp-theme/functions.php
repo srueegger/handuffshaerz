@@ -68,7 +68,7 @@ add_action( 'after_setup_theme', 'register_huh_menu' );
  ***************************************/
 function huh_startup_scripts() {
 	//Google Fonts
-	wp_enqueue_style( 'huh-google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Prata' );
+	wp_enqueue_style( 'huh-google-font', 'https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Open+Sans:400,700' );
 	//Google Maps
 	wp_enqueue_script( 'huh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtvo159H5x0G9qus_ZJXIvaPy9vIEz7bM&language=de-CH&region=CH', null, null, true );
 	//Cookie Consent

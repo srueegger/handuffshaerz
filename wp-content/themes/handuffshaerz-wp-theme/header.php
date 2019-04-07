@@ -47,7 +47,7 @@
 							<div class="col-12 col-md-6 text-center">
 								<a href="<?php echo HOME_URI; ?>">
 									<picture>
-										<img class="logoimage" src="<?php echo THEME_IMAGES; ?>/logo.jpg" alt="">
+										<img class="logoimage" src="<?php echo THEME_IMAGES; ?>/logo-black.svg" alt="">
 									</picture>
 								</a>
 							</div>

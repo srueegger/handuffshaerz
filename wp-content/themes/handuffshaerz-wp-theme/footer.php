@@ -3,7 +3,7 @@
 				<div class="row py-5 text-center text-white">
 					<div class="col-12">
 						<picture>
-							<img class="logoimage" src="<?php echo THEME_IMAGES; ?>/logo.jpg" alt="">
+							<img class="logoimage" src="<?php echo THEME_IMAGES; ?>/logo-white.svg" alt="">
 						</picture>
 					</div>
 					<div class="col-12 my-3 claim">

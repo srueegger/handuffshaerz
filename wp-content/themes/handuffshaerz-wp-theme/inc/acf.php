@@ -1257,6 +1257,72 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 	
 	acf_add_local_field_group(array(
+		'key' => 'group_5ca9e319ba882',
+		'title' => 'Social Media Menü',
+		'fields' => array(
+			array(
+				'key' => 'field_5ca9e3269a5ae',
+				'label' => 'Icon',
+				'name' => 'sm_icon',
+				'type' => 'font-awesome',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'icon_sets' => array(
+					0 => 'custom',
+				),
+				'custom_icon_set' => 'ACFFA_custom_icon_list_v5_SocialMediaIcons',
+				'default_label' => '',
+				'default_value' => '',
+				'save_format' => 'class',
+				'allow_null' => 0,
+				'show_preview' => 1,
+				'enqueue_fa' => 0,
+				'fa_live_preview' => '',
+				'choices' => array(
+				),
+			),
+			array(
+				'key' => 'field_5ca9e3519a5af',
+				'label' => 'Icon Farbe',
+				'name' => 'sm_icon_color',
+				'type' => 'color_picker',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'nav_menu_item',
+					'operator' => '==',
+					'value' => 'location/socialmedia-menu',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+	));
+	
+	acf_add_local_field_group(array(
 		'key' => 'group_5c90c3e601ed6',
 		'title' => 'Teamfoto',
 		'fields' => array(

@@ -60,6 +60,7 @@ add_image_size( 'kursfoto-xs', 350, 203, true );
 function register_huh_menu() {
 	register_nav_menu( 'main-menu', 'Hauptmenü' );
 	register_nav_menu( 'footer-menu', 'Footermenü' );
+	register_nav_menu( 'socialmedia-menu', 'Social Media Menü' );
 }
 add_action( 'after_setup_theme', 'register_huh_menu' );
 
@@ -75,10 +76,10 @@ function huh_startup_scripts() {
 	wp_enqueue_script( 'huh-cookieconsent-script', DIST_JS . '/cookieconsent.min.js', null, '3.1.0', false );
 	wp_enqueue_style( 'huh-cookieconsent-style', DIST_CSS . '/cookieconsent.min.css', null, '3.1.0' );
 	if (WP_DEBUG) {
-		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.8' );
+		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '1.9' );
 		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.5', true );
 	} else {
-		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.8' );
+		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '1.9' );
 		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.5', true );
 	}
 	$global_vars = array(

@@ -38,11 +38,19 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-3 d-none d-md-block">
-								<div class="headericons">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="#" target="_blank"><i style="color: #3b5998;" class="fab fa-facebook fa-3x fa-fw"></i></a></li>
-									</ul>
-								</div>
+								<?php
+								$menulocations = get_nav_menu_locations();
+								$menuitems = wp_get_nav_menu_items($menulocations['socialmedia-menu']);
+								if(!empty($menuitems)):
+									echo '<div class="headericons"><ul class="list-inline">';
+									foreach($menuitems as $menuitem):
+										$icon = get_field('sm_icon', $menuitem);
+										$color = get_field('sm_icon_color', $menuitem);
+										echo '<li class="list-inline-item"><a title="'.$menuitem->title.'" href="'.$menuitem->url.'" target="'.$menuitem->target.'"><i style="color: '.$color.';" class="'.$icon.' fa-3x fa-fw"></i></a></li>';
+									endforeach;
+									echo '</ul></div>';
+								endif;
+								?>
 							</div>
 							<div class="col-12 col-md-6 text-center">
 								<a href="<?php echo HOME_URI; ?>">

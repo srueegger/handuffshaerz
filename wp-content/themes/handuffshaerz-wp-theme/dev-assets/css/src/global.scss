@@ -401,8 +401,11 @@ footer {
 }
 
 .team-item {
-	@extend %animation;
+	overflow: hidden;
 	.inner {
+		img {
+			@extend %animation;
+		}
 		h3 {
 			background-color: $red;
 			width: 100%;
@@ -466,8 +469,12 @@ footer {
 		}
 	}
 	&:hover {
-		-webkit-transform: scale(1.05);
+		.inner {
+			img {
+				-webkit-transform: scale(1.05);
 		        transform: scale(1.05);
+			}
+		}
 	}
 }
 

@@ -228,8 +228,6 @@ body {
 		bottom: unset;
 		left: auto;
 		right: unset;
-		-webkit-transform: unset;
-		        transform: unset;
 		.fa-stack-2x {
 			color: $red;
 		}
@@ -243,10 +241,8 @@ body {
 		padding-left: 15px;
 		.fa-stack {
 			position: absolute;
-			bottom: 50%;
+			top: 50px;
 			right: -125px;
-			-webkit-transform: translateY(50%);
-					transform: translateY(50%);
 		}
 		&:nth-child(even) {
 			text-align: right;

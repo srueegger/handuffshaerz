@@ -14377,9 +14377,7 @@ body {
     position: relative;
     bottom: unset;
     left: auto;
-    right: unset;
-    -webkit-transform: unset;
-    transform: unset; }
+    right: unset; }
     .aboutus-item .fa-stack .fa-stack-2x {
       color: #f00; }
     .aboutus-item .fa-stack .fa-stack-1x {
@@ -14391,10 +14389,8 @@ body {
       padding-left: 15px; }
       .aboutus-item .fa-stack {
         position: absolute;
-        bottom: 50%;
-        right: -125px;
-        -webkit-transform: translateY(50%);
-        transform: translateY(50%); }
+        top: 50px;
+        right: -125px; }
       .aboutus-item:nth-child(even) {
         text-align: right;
         padding-left: 125px;

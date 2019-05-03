@@ -14491,8 +14491,19 @@ body {
 
 footer {
   background-color: #343a40; }
+  @media (min-width: 768px) {
+    footer .logoclaim {
+      position: absolute;
+      right: 50%;
+      bottom: 50%;
+      -webkit-transform: translate(50%, 50%);
+      transform: translate(50%, 50%); } }
   footer .claim {
-    font-size: 2rem; }
+    font-size: 1.2rem;
+    margin-top: 15px; }
+    @media (min-width: 768px) {
+      footer .claim {
+        white-space: nowrap; } }
 
 .subfooter {
   background-color: #000; }
@@ -14650,6 +14661,12 @@ footer {
 
 #coursedetail {
   display: none; }
+
+.smhgts2 {
+  min-height: 320px; }
+
+.smhgts3 {
+  min-height: 66px; }
 
 input {
   -webkit-transition: background-color 2s ease-out !important;

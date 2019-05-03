@@ -38,10 +38,10 @@
 							<source srcset="<?php echo $image['sizes']['kursfoto-lg']; ?>" media="(min-width: 992px)">
 							<source srcset="<?php echo $image['sizes']['kursfoto-md']; ?>" media="(min-width: 768px)">
 							<source srcset="<?php echo $image['sizes']['kursfoto-sm']; ?>" media="(min-width: 576px)">
-							<img src="<?php echo $image['sizes']['kursfoto-xs']; ?>" class="img-fluid" alt="<?php echo $image['alt']; ?>">
+							<img src="<?php echo $image['sizes']['kursfoto-xs']; ?>" class="img-fluid smhgts" alt="<?php echo $image['alt']; ?>">
 					</picture>
 					<div class="inner">
-						<?php the_title('<h3 class="my-3">', '</h3>'); ?>
+						<?php the_title('<h3 class="my-3 smhgts3">', '</h3>'); ?>
 						<div class="item-meta mb-3">
 							<span class="meta">
 								<span class="inner-meta">
@@ -68,7 +68,9 @@
 								</span>
 							</span>
 						</div>
-						<?php the_field('course_shortinfo'); ?>
+						<div class="smhgts2">
+							<?php the_field('course_shortinfo'); ?>
+						</div>
 						<p><button type="button" data-courseid="<?php the_ID(); ?>" class="btn btn-outline-primary w-100 showcoursesubscribe"><?php the_field('course_btn_txt'); ?></button></p>
 					</div>
 				</div>

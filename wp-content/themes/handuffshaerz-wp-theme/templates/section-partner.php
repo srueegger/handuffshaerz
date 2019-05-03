@@ -36,7 +36,9 @@
 							<img class="img-fluid" src="<?php echo $image['sizes']['partnerlogo-xs']; ?>" alt="<?php echo $image['alt']; ?>">
 						</picture>
 						<h3 class="my-4"><?php the_sub_field('title'); ?><?php echo $title_addon; ?></h3>
+						<div class="smhgts">
 						<?php the_sub_field('txt'); ?>
+						</div>
 						<a href="<?php echo $btn['url']; ?>" target="<?php echo $btn['target']; ?>" class="btn w-100"><?php echo $btn['title']; ?></a>
 					</div>
 				</div>

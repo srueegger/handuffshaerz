@@ -387,8 +387,21 @@ body {
 
 footer {
 	background-color: $gray-800;
+	.logoclaim {
+		@include media-breakpoint-up(md) {
+			position: absolute;
+			right: 50%;
+			bottom: 50%;
+			-webkit-transform: translate(50%, 50%);
+					transform: translate(50%, 50%);
+		}
+	}
 	.claim {
-		font-size: 2rem;
+		font-size: 1.2rem;
+		margin-top: 15px;
+		@include media-breakpoint-up(md) {
+			white-space: nowrap;
+		}
 	}
 }
 
@@ -593,4 +606,12 @@ footer {
 
 #coursedetail {
 	display: none;
+}
+
+.smhgts2 {
+	min-height: 320px;
+}
+
+.smhgts3 {
+	min-height: 66px;
 }

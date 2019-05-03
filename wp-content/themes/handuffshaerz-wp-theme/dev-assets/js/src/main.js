@@ -189,4 +189,9 @@
 		});
 	});
 
+	//Textboxen gleich hoch
+	$('.smhgts').matchHeight({
+		property : 'min-height'
+	});
+
 })(jQuery);

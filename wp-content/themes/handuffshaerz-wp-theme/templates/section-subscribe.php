@@ -48,7 +48,13 @@
 									<span class="meta-icon-container">
 										<i class="fal fa-clock"></i>
 									</span>
-									<span class="meta-txt"><?php echo $meta['dauer']; ?> Stunden</span>
+									<?php
+									$hours = 'Stunden';
+									if($meta['dauer'] == 1):
+										$hours = 'Stunde';
+									endif;
+									?>
+									<span class="meta-txt"><?php echo $meta['dauer']; ?> <?php echo $hours; ?></span>
 								</span>
 							</span>
 							<span class="meta">

@@ -194,4 +194,9 @@
 		property : 'min-height'
 	});
 
+	//Lazyload aktivieren
+	var lazyLoadInstance = new LazyLoad({
+		elements_selector : '.lazy'
+	});
+
 })(jQuery);

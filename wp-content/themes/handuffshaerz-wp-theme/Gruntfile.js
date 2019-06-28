@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
 					'node_modules/jquery-aniview/dist/jquery.aniview.js',
 					'node_modules/jquery-match-height/dist/jquery.matchHeight-min.js',
 					'node_modules/cookieconsent/build/cookieconsent.min.js',
+					'node_modules/vanilla-lazyload/dist/lazyload.min.js',
                     'dev-assets/js/src/main.js'
                 ],
                 dest: 'dev-assets/js/theme.js'

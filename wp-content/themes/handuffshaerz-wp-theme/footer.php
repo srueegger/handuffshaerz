@@ -3,18 +3,18 @@
 				<div class="row py-5 text-center text-white">
 					<div class="col-6 col-md-4 mb-4 mb-md-0">
 						<picture>
-							<img src="<?php echo THEME_IMAGES; ?>/src-generic.png" class="img-fluid" alt="SRC Generic Logo">
+							<img data-src="<?php echo THEME_IMAGES; ?>/src-generic.png" class="img-fluid lazy" alt="SRC Generic Logo">
 						</picture>
 					</div>
 					<div class="col-6 col-md-4 mb-4 mb-md-0">
 						<picture>
-							<img src="<?php echo THEME_IMAGES; ?>/src-kompakt.png" class="img-fluid" alt="SRC Kompakt Logo">
+							<img data-src="<?php echo THEME_IMAGES; ?>/src-kompakt.png" class="img-fluid lazy" alt="SRC Kompakt Logo">
 						</picture>
 					</div>
 					<div class="col-12 col-md-4">
 						<div class="logoclaim">
 							<picture>
-								<img class="logoimage" src="<?php echo THEME_IMAGES; ?>/logo-white.svg" alt="Hand uffs Härz Logo">
+								<img class="logoimage lazy" data-src="<?php echo THEME_IMAGES; ?>/logo-white.svg" alt="Hand uffs Härz Logo">
 							</picture>
 							<p class="claim">Ausbildung für First Responder</p>
 						</div>

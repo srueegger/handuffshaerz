@@ -28,11 +28,11 @@
 							<div class="team-item">
 								<div class="inner">
 									<picture>
-										<source srcset="<?php echo $image['sizes']['teamfoto-xl']; ?>" media="(min-width: 1200px)">
-										<source srcset="<?php echo $image['sizes']['teamfoto-lg']; ?>" media="(min-width: 992px)">
-										<source srcset="<?php echo $image['sizes']['teamfoto-md']; ?>" media="(min-width: 768px)">
-										<source srcset="<?php echo $image['sizes']['teamfoto-sm']; ?>" media="(min-width: 576px)">
-										<img src="<?php echo $image['sizes']['teamfoto-xs']; ?>" alt="<?php echo $image['alt']; ?>" class="img-fluid">
+										<source data-srcset="<?php echo $image['sizes']['teamfoto-xl']; ?>" media="(min-width: 1200px)">
+										<source data-srcset="<?php echo $image['sizes']['teamfoto-lg']; ?>" media="(min-width: 992px)">
+										<source data-srcset="<?php echo $image['sizes']['teamfoto-md']; ?>" media="(min-width: 768px)">
+										<source data-srcset="<?php echo $image['sizes']['teamfoto-sm']; ?>" media="(min-width: 576px)">
+										<img data-src="<?php echo $image['sizes']['teamfoto-xs']; ?>" alt="<?php echo $image['alt']; ?>" class="img-fluid lazy">
 									</picture>
 									<h3>
 										<?php the_title(); ?>

@@ -77,10 +77,10 @@ function huh_startup_scripts() {
 	wp_enqueue_style( 'huh-cookieconsent-style', DIST_CSS . '/cookieconsent.min.css', null, '3.1.0' );
 	if (WP_DEBUG) {
 		wp_enqueue_style( 'huh-style', DEV_CSS . '/theme.css', array('huh-google-font'), '2.7' );
-		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.7', true );
+		wp_register_script( 'huh-script', DEV_JS ."/theme.js", array('jquery', 'huh-google-maps'), '1.8', true );
 	} else {
 		wp_enqueue_style( 'huh-style', DIST_CSS . '/theme.min.css', array('huh-google-font'), '2.7' );
-		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.7', true );
+		wp_register_script( 'huh-script', DIST_JS ."/theme.min.js", array('jquery', 'huh-google-maps'), '1.8', true );
 	}
 	$global_vars = array(
 		'ajaxurl' => admin_url('admin-ajax.php')

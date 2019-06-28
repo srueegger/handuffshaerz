@@ -27,13 +27,13 @@
 				endif;
 				?>
 				<div class="col-12 <?php echo $col_lg; ?> offer-item mb-3">
-					<div data-av-animation="flipInY" class="inner animatein spped-<?php echo get_row_index(); ?>">
+					<div data-av-animation="flipInY" class="inner animatein speed-<?php echo get_row_index(); ?>">
 						<picture>
-							<source srcset="<?php echo $image['sizes'][$logosize_xl]; ?>" media="(min-width: 1200px)">
-							<source srcset="<?php echo $image['sizes']['partnerlogo-lg']; ?>" media="(min-width: 992px)">
-							<source srcset="<?php echo $image['sizes']['partnerlogo-md']; ?>" media="(min-width: 768px)">
-							<source srcset="<?php echo $image['sizes']['partnerlogo-sm']; ?>" media="(min-width: 576px)">
-							<img class="img-fluid" src="<?php echo $image['sizes']['partnerlogo-xs']; ?>" alt="<?php echo $image['alt']; ?>">
+							<source data-srcset="<?php echo $image['sizes'][$logosize_xl]; ?>" media="(min-width: 1200px)">
+							<source data-srcset="<?php echo $image['sizes']['partnerlogo-lg']; ?>" media="(min-width: 992px)">
+							<source data-srcset="<?php echo $image['sizes']['partnerlogo-md']; ?>" media="(min-width: 768px)">
+							<source data-srcset="<?php echo $image['sizes']['partnerlogo-sm']; ?>" media="(min-width: 576px)">
+							<img class="img-fluid lazy" data-src="<?php echo $image['sizes']['partnerlogo-xs']; ?>" alt="<?php echo $image['alt']; ?>">
 						</picture>
 						<h3 class="my-4"><?php the_sub_field('title'); ?><?php echo $title_addon; ?></h3>
 						<div class="smhgts">

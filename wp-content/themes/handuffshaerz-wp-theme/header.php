@@ -61,7 +61,7 @@
 								</a>
 							</div>
 							<div class="col-3 d-none d-md-block">
-								<h1 class="pageinfo"><?php bloginfo('description'); ?><h1>
+								<h1 class="pageinfo"><?php bloginfo('description'); ?></h1>
 							</div>
 						</div>
 					</div>

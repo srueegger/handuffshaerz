@@ -28,11 +28,11 @@
 							<div class="team-item">
 								<div class="inner">
 									<picture>
-										<source data-srcset="<?php echo $image['sizes']['teamfoto-xl']; ?>" media="(min-width: 1200px)">
-										<source data-srcset="<?php echo $image['sizes']['teamfoto-lg']; ?>" media="(min-width: 992px)">
-										<source data-srcset="<?php echo $image['sizes']['teamfoto-md']; ?>" media="(min-width: 768px)">
-										<source data-srcset="<?php echo $image['sizes']['teamfoto-sm']; ?>" media="(min-width: 576px)">
-										<img data-src="<?php echo $image['sizes']['teamfoto-xs']; ?>" alt="<?php echo $image['alt']; ?>" class="img-fluid lazy">
+										<source data-srcset="<?php echo $slide['sizes']['teamfoto-xl-2x']; ?> 2x, <?php echo $image['sizes']['teamfoto-xl']; ?> 1x" media="(min-width: 1200px)">
+										<source data-srcset="<?php echo $slide['sizes']['teamfoto-lg-2x']; ?> 2x, <?php echo $image['sizes']['teamfoto-lg']; ?> 1x" media="(min-width: 992px)">
+										<source data-srcset="<?php echo $slide['sizes']['teamfoto-md-2x']; ?> 2x, <?php echo $image['sizes']['teamfoto-md']; ?> 1x" media="(min-width: 768px)">
+										<source data-srcset="<?php echo $slide['sizes']['teamfoto-sm-2x']; ?> 2x, <?php echo $image['sizes']['teamfoto-sm']; ?> 1x" media="(min-width: 576px)">
+										<img data-src="<?php echo $image['sizes']['teamfoto-xs']; ?>" data-srcset="<?php echo $image['sizes']['teamfoto-xs-2x']; ?> 2x" alt="<?php echo $image['alt']; ?>" class="img-fluid lazy">
 									</picture>
 									<h3>
 										<?php the_title(); ?>
